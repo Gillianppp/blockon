@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginOne from './components/LoginOne/LoginOne.js';
 
 class App extends Component {
   render() {
@@ -17,8 +18,9 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Hello this is BlockOn Team
+            Hello this is BlockOn Team 
           </a>
+          <LoginOne />
         </header>
       </div>
     );
