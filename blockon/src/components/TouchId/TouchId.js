@@ -6,14 +6,15 @@ import './TouchId.css';
 class TouchId extends Component {
 
     render = () => (
-        <div className="touchBg">
+        <div>
+            <div className="touchBg"></div>
             <div className="touchWrapper">
                 <h3 className="titleOne">Crypt Scrypt</h3>
                 <h1 className="titleTwo">Login</h1>
                 <div className="iconWrapper">
                     <FontAwesomeIcon icon="fingerprint" className="touchIcon" />
                     <div>
-                    <span className="touchTitle">Touch ID</span>
+                        <span className="touchTitle">Touch ID</span>
                     </div>
                 </div>
             </div>
