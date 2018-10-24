@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import { Container } from 'semantic-ui-react';
+import { Row, Col } from 'react-flexbox-grid';
+import HeaderBar from '../../components/Header/Header';
+import TouchId from '../../components/TouchId/TouchId';
 import './Auth.css';
-// import LoginOne from './components/LoginOne/LoginOne.js';
 
-const Auth = () => (
-    <h1>This is AUth page</h1>
-  );
+
+class Auth extends Component {
+
+    render = () => (
+        <Row>
+            <Col xs={12} lg={12}>
+                <HeaderBar />
+                <TouchId />
+            </Col>
+        </Row>
+    )
+
+};
 
 export default Auth;

@@ -1,0 +1,18 @@
+.mainHeader {
+    min-height: 80px;
+    margin-bottom: 0 !important;
+}
+
+.headerIcons {
+    padding-top: 25px !important;
+    padding-bottom: 25px;
+    padding-left: 25px;
+}
+
+.icon{
+    color: rgb(10,136,188) !important;
+}
+
+.iconTitle {
+    font-size: 35px;
+}

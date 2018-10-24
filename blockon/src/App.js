@@ -4,6 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import HomeContainer from './containers/Home/Home';
 import AuthContainer from './containers/Auth/Auth';
 import DashboardContainer from './containers/Dashboard/Dashboard';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFingerprint } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faFingerprint);
 
 class App extends Component {
   render() {

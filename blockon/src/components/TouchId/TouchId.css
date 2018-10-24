@@ -1,0 +1,48 @@
+.touchBg {
+    background: url('../../assets/images/auth2.jpg') top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.touchWrapper {
+    margin: 0 auto;
+    background: rgb(0,0,0,0.6);
+    width: 400px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    border-radius: 5px;
+    height: 250px;
+}
+
+.titleOne {
+    text-align: center;
+     margin-top: 50px !important;
+    color: white;
+    font-size: 15px;
+}
+
+.titleTwo {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+}
+.iconWrapper {
+    text-align: center;
+    color: white;
+}
+
+.touchIcon {
+    font-size: 35px;
+}
+
+.touchTitle {
+    font-size: 10px
+}
+
+@media screen and (max-width: 768px) {
+    .touchWrapper {
+      left: 20%;
+    }
+  }
