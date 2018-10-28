@@ -1,0 +1,11 @@
+.meterSection, .otherSection {
+    box-shadow: -1px -1px 12px #888;
+}
+
+.meterSection {
+    margin-left: 30px;
+}
+
+.otherSection {
+    margin-left: 20px;
+}

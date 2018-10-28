@@ -9,10 +9,6 @@
     padding-left: 25px;
 }
 
-.icon{
-    color: rgb(10,136,188) !important;
-}
-
-.iconTitle {
-    font-size: 35px;
+.logo {
+    height: 45px !important;
 }

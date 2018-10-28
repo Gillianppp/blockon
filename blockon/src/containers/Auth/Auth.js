@@ -7,16 +7,17 @@ import './Auth.css';
 
 
 class Auth extends Component {
-
-    render = () => (
-        <Row>
+    render() {
+        return(
+            <Row>
             <Col xs={12} lg={12}>
                 <HeaderBar />
-                <TouchId />
+                <TouchId {...this.props}/>
             </Col>
         </Row>
-    )
+        );
 
+    }
 };
 
 export default Auth;

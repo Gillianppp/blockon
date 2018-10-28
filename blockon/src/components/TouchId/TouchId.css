@@ -45,6 +45,7 @@
     width: 44px !important;
     border-radius: 50px !important;
     padding: 6px;
+    cursor: pointer !important;
 }
 
 .touchTitle {
