@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Label, Table, Button } from 'semantic-ui-react';
+import { Label, Table } from 'semantic-ui-react';
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
-import './PatientTable.css';
+import './PatientDoctorTable.css';
 
-class PatientTable extends Component {
+class PatientDoctorTable extends Component {
   render() {
     const { patientData } = this.props;
     return (
@@ -18,7 +18,6 @@ class PatientTable extends Component {
             <Table.HeaderCell>Dosage</Table.HeaderCell>
             <Table.HeaderCell>Last Dispense Date</Table.HeaderCell>
             <Table.HeaderCell># of Refils</Table.HeaderCell>
-            <Table.HeaderCell>Action</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
     
@@ -33,14 +32,6 @@ class PatientTable extends Component {
                         <Table.Cell>{patient.dosage}</Table.Cell>
                         <Table.Cell>{patient.lastDate}</Table.Cell>
                         <Table.Cell>{patient.noRefil}</Table.Cell>
-                        <Table.Cell>
-                            {patient.status === true &&
-                            <Button className="dispBtn">Dispense</Button>
-                            }
-                            {patient.status !== true &&
-                            'Dispense'
-                            }
-                        </Table.Cell>
                     </Table.Row>
                         ))
             }
@@ -51,7 +42,7 @@ class PatientTable extends Component {
   }
 }
 
-PatientTable.propTypes = {
+PatientDoctorTable.propTypes = {
     patientData: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
       presDate: PropTypes.string.isRequired,
@@ -60,12 +51,11 @@ PatientTable.propTypes = {
       dosage: PropTypes.string.isRequired,
       lastDate: PropTypes.string.isRequired,
       noRefil: PropTypes.string.isRequired,
-      dispense: PropTypes.bool.isRequired
     })),
 
   };
 
-PatientTable.defaultProps = {
+  PatientDoctorTable.defaultProps = {
     patientData: [
       {
         name: 'Hydrocodane',
@@ -74,8 +64,7 @@ PatientTable.defaultProps = {
         opioid: 'yes',
         dosage: '50mg',
         lastDate: '10/15/2015',
-        noRefil: '2',
-        dispense: true
+        noRefil: '2'
       },
       {
         name: 'Simvastatin',
@@ -84,8 +73,7 @@ PatientTable.defaultProps = {
         opioid: 'yes',
         dosage: '50mg',
         lastDate: '10/15/2015',
-        noRefil: '0',
-        dispense: true
+        noRefil: '0'
       },
       {
         name: 'Lipitor',
@@ -94,8 +82,7 @@ PatientTable.defaultProps = {
         opioid: 'yes',
         dosage: '50mg',
         lastDate: '10/15/2015',
-        noRefil: '6',
-        dispense: true
+        noRefil: '6'
       },
       {
         name: 'Levothyroxin',
@@ -104,8 +91,7 @@ PatientTable.defaultProps = {
         opioid: 'no',
         dosage: '50mg',
         lastDate: '10/15/2015',
-        noRefil: '6',
-        dispense: true
+        noRefil: '6'
       },
       {
         name: 'Lisinopril',
@@ -114,11 +100,10 @@ PatientTable.defaultProps = {
         opioid: 'no',
         dosage: '50mg',
         lastDate: '10/15/2015',
-        noRefil: '6',
-        dispense: true
+        noRefil: '6'
       },
     ]
   };
 
 
-export default PatientTable;
+export default PatientDoctorTable;

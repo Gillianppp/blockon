@@ -4,8 +4,14 @@
 
 .meterSection {
     margin-left: 30px;
+    margin-top: 20px;
 }
 
 .otherSection {
     margin-left: 20px;
+    margin-top: 20px;
+}
+
+.dbsecondWrapper {
+    background: #f7f7f7;
 }
