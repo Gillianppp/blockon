@@ -1,0 +1,11 @@
+.meterImg {
+    height: 200px;
+    left: 20%;
+    padding-bottom: 25px !important;
+}
+
+.imgTitle {
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 20px !important;
+}
