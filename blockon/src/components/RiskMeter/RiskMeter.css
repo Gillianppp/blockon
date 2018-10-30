@@ -1,9 +1,22 @@
-.meterImg {
+.speedometer {
     height: 200px;
     left: 20%;
-    padding-bottom: 25px !important;
+    position: relative;
+    margin-top: 10px;
 }
 
+.meterLabel {
+    width: 300px;
+    background-color: rgb(10, 136, 188) !important;
+     color: white !important;
+     text-align: center;
+    position: relative;
+    left: 20%;
+    font-size: 20px !important;
+    font-weight: bold;
+    height: 40px !important;
+    margin-bottom: 20px !important;
+}
 .imgTitle {
     margin-left: 20px;
     font-size: 20px;

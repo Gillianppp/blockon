@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Label, Table, Button } from 'semantic-ui-react';
+import { Label, Table, Button, Popup } from 'semantic-ui-react';
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import './PatientPharmaTable.css';
@@ -28,7 +28,7 @@ class PatientPharmaTable extends Component {
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.name}</Table.Cell>
                         <Table.Cell>{patient.presDate}</Table.Cell>
-                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Inactive'}`}</Label></Table.Cell>
+                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Expired'}`}</Label></Table.Cell>
                         <Table.Cell>{patient.opioid}</Table.Cell>
                         <Table.Cell>{patient.dosage}</Table.Cell>
                         <Table.Cell>{patient.lastDate}</Table.Cell>
@@ -38,7 +38,10 @@ class PatientPharmaTable extends Component {
                             <Button className="dispBtn">Dispense</Button>
                             }
                             {patient.status !== true &&
-                            'Dispense'
+                            <Popup className="popUp"
+                            trigger={<span>N/A</span>}
+                            content='You will need to go back to the doctor to get a second refill'
+                            />
                             }
                         </Table.Cell>
                     </Table.Row>
@@ -60,7 +63,6 @@ PatientPharmaTable.propTypes = {
       dosage: PropTypes.string.isRequired,
       lastDate: PropTypes.string.isRequired,
       noRefil: PropTypes.string.isRequired,
-      dispense: PropTypes.bool.isRequired
     })),
 
   };
@@ -75,7 +77,6 @@ PatientPharmaTable.propTypes = {
         dosage: '50mg',
         lastDate: '10/15/2015',
         noRefil: '2',
-        dispense: true
       },
       {
         name: 'Simvastatin',
@@ -85,7 +86,6 @@ PatientPharmaTable.propTypes = {
         dosage: '50mg',
         lastDate: '10/15/2015',
         noRefil: '0',
-        dispense: true
       },
       {
         name: 'Lipitor',
@@ -95,7 +95,6 @@ PatientPharmaTable.propTypes = {
         dosage: '50mg',
         lastDate: '10/15/2015',
         noRefil: '6',
-        dispense: true
       },
       {
         name: 'Levothyroxin',
@@ -105,7 +104,6 @@ PatientPharmaTable.propTypes = {
         dosage: '50mg',
         lastDate: '10/15/2015',
         noRefil: '6',
-        dispense: true
       },
       {
         name: 'Lisinopril',
@@ -115,7 +113,6 @@ PatientPharmaTable.propTypes = {
         dosage: '50mg',
         lastDate: '10/15/2015',
         noRefil: '6',
-        dispense: true
       },
     ]
   };

@@ -1,15 +1,53 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Icon, Label, Button } from 'semantic-ui-react';
 import './TextBlock.css';
 
+
 class TextBlock extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpened: false,
+    };
+    this.toggleBox = this.toggleBox.bind(this);
+  }
+
+  toggleBox() {
+    const { isOpened } = this.state;
+    this.setState({
+      isOpened: !isOpened,
+    });
+  }
+
   render() {
+    const { isOpened } = this.state;
+    const { userType } = this.props;
     return (
       <div>
-        <h1 className="imgTitle">Report Patient's Status</h1>
-        <p className="blockText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <Button size='tiny' negative className="flagButton">Flag Patient</Button>
-    </div>
+        { userType === 'Pharmacist' &&
+          <h1 className="imgTitle">Report Patient Status</h1>
+        }
+
+        <Label.Group className="flagGroup">
+          <Label className={`flagLabel ${isOpened ? 'labelActive' : ''}`} as='a' onClick={this.toggleBox}>
+            Fun
+            {isOpened &&
+              <Icon name='check circle outline' className="checkIcon" />
+            }
+
+          </Label>
+          <Label as='a' className="flagLabel">
+            Happy
+          </Label>
+          <Label as='a' className="flagLabel" >Smart</Label>
+          <Label as='a' className="flagLabel">Insane</Label>
+          <Label as='a' className="flagLabel" >Exciting</Label>
+        </Label.Group>
+        {isOpened &&
+          <Button size='tiny' negative className="flagButton">Flag Patient</Button>
+        }
+
+      </div>
     );
   }
 }

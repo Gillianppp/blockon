@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import HeaderBar from '../../components/Header/Header';
-import PharmacyForm from '../../components/PharmacyForm/PharmacyForm';
 import RiskMeter from '../../components/RiskMeter/RiskMeter';
 import TextBlock from '../../components/TextBlock/TextBlock';
+import Tabs from '../../components/Tabs/Tabs';
 import PatientPharmaTable from '../../components/PatientPharmaTable/PatientPharmaTable';
 import PatientDoctorTable from '../../components/PatientDoctorTable/PatientDoctorTable';
 import './Dashboard.css';
@@ -26,10 +26,10 @@ class Dashboard extends Component {
                             </Col>
                             <Col xs={12} lg={6} className="otherSection">
                             { userType === 'Pharmacist' &&
-                                <TextBlock />
+                                <TextBlock userType={userType}/>
                             }
                             { userType === 'Physician' &&
-                                <PharmacyForm />
+                                <Tabs {...this.props}/>
                             }
                                
                             </Col>

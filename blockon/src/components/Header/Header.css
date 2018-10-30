@@ -11,3 +11,10 @@
 .logo {
     height: 45px !important;
 }
+
+.userDropDown {
+    position: absolute !important;
+    top: 20px;
+    right: 60px;
+    font-size: 15px;
+}

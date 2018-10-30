@@ -27,7 +27,7 @@ class PatientDoctorTable extends Component {
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.name}</Table.Cell>
                         <Table.Cell>{patient.presDate}</Table.Cell>
-                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Inactive'}`}</Label></Table.Cell>
+                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Expired'}`}</Label></Table.Cell>
                         <Table.Cell>{patient.opioid}</Table.Cell>
                         <Table.Cell>{patient.dosage}</Table.Cell>
                         <Table.Cell>{patient.lastDate}</Table.Cell>
