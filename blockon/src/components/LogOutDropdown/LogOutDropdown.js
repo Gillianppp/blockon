@@ -18,13 +18,12 @@ const options = [
     ),
     disabled: true,
   },
-//   { key: 'profile', text: 'Your Profile' },
-//   { key: 'stars', text: 'Your Stars' },
-//   { key: 'explore', text: 'Explore' },
-//   { key: 'integrations', text: 'Integrations' },
-//   { key: 'help', text: 'Help' },
-//   { key: 'settings', text: 'Settings' },
-  { key: 'sign-out', text: 'Sign Out' },
+
+  { key: 'sign-out', text: (
+      <span>
+        <a href="/" className="signOutLink"><strong>Sign out</strong></a>
+      </span>
+    ),},
 ]
 
 class LogOutDropdown extends Component {

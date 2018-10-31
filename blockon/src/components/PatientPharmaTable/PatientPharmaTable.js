@@ -4,11 +4,27 @@ import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import './PatientPharmaTable.css';
 
+const Dispense = (patient) => {
+  const { status, onClick, id } = patient;
+  if (status) {
+    return <Button onClick={() => onClick(id)} className="dispBtn">Dispense</Button>
+  }
+
+  return (
+    <Popup className="popUp"
+      trigger={<span>N/A</span>}
+      content='You will need to go back to the doctor to get a second refill'
+    />
+  );
+};
+
 class PatientPharmaTable extends Component {
+  
+
   render() {
-    const { patientData } = this.props;
+    const { patientData, updateNumberOfRefills } = this.props;
     return (
-        <Table singleLine className="patientTable">
+      <Table singleLine className="patientTable">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Prescription Name</Table.HeaderCell>
@@ -21,33 +37,29 @@ class PatientPharmaTable extends Component {
             <Table.HeaderCell>Action</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-    
+
         <Table.Body>
-            {
-                 patientData.map((patient, index) => (
-                    <Table.Row key={uuid()}>
-                        <Table.Cell>{patient.name}</Table.Cell>
-                        <Table.Cell>{patient.presDate}</Table.Cell>
-                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Expired'}`}</Label></Table.Cell>
-                        <Table.Cell>{patient.opioid}</Table.Cell>
-                        <Table.Cell>{patient.dosage}</Table.Cell>
-                        <Table.Cell>{patient.lastDate}</Table.Cell>
-                        <Table.Cell>{patient.noRefil}</Table.Cell>
-                        <Table.Cell>
-                            {patient.status === true &&
-                            <Button className="dispBtn">Dispense</Button>
-                            }
-                            {patient.status !== true &&
-                            <Popup className="popUp"
-                            trigger={<span>N/A</span>}
-                            content='You will need to go back to the doctor to get a second refill'
-                            />
-                            }
-                        </Table.Cell>
-                    </Table.Row>
-                        ))
-            }
-       
+          {
+            patientData.map((patient, index) => (
+              <Table.Row key={uuid()}>
+                <Table.Cell>{patient.name}</Table.Cell>
+                <Table.Cell>{patient.presDate}</Table.Cell>
+                <Table.Cell>
+                  <Label color={`${patient.status === true ? 'green' : 'red'}`}>
+                    {`${patient.status === true ? 'Active' : 'Expired'}`}
+                  </Label>
+                </Table.Cell>
+                <Table.Cell>{patient.opioid}</Table.Cell>
+                <Table.Cell>{patient.dosage}</Table.Cell>
+                <Table.Cell>{patient.lastDate}</Table.Cell>
+                <Table.Cell>{patient.noRefil}</Table.Cell>
+                <Table.Cell>
+                  <Dispense {...patient} onClick={updateNumberOfRefills} />
+                </Table.Cell>
+              </Table.Row>
+            ))
+          }
+
         </Table.Body>
       </Table>
     );
@@ -55,67 +67,23 @@ class PatientPharmaTable extends Component {
 }
 
 PatientPharmaTable.propTypes = {
-    patientData: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      presDate: PropTypes.string.isRequired,
-      status: PropTypes.bool.isRequired,
-      opioid: PropTypes.string.isRequired,
-      dosage: PropTypes.string.isRequired,
-      lastDate: PropTypes.string.isRequired,
-      noRefil: PropTypes.string.isRequired,
-    })),
+  patientData: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    presDate: PropTypes.string.isRequired,
+    status: PropTypes.bool.isRequired,
+    opioid: PropTypes.string.isRequired,
+    dosage: PropTypes.string.isRequired,
+    lastDate: PropTypes.string.isRequired,
+    noRefil: PropTypes.string.isRequired,
+    updateNumberOfRefills: PropTypes.func
+  })),
 
-  };
+};
 
-  PatientPharmaTable.defaultProps = {
-    patientData: [
-      {
-        name: 'Hydrocodane',
-        presDate: '10/15/2015',
-        status: true,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '2',
-      },
-      {
-        name: 'Simvastatin',
-        presDate: '10/26/2015',
-        status: true,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '0',
-      },
-      {
-        name: 'Lipitor',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6',
-      },
-      {
-        name: 'Levothyroxin',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'no',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6',
-      },
-      {
-        name: 'Lisinopril',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'no',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6',
-      },
-    ]
-  };
+PatientPharmaTable.defaultProps = {
+  updateNumberOfRefills: () => { },
+  patientData: []
+};
 
 
 export default PatientPharmaTable;

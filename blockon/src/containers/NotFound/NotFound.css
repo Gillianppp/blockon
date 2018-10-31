@@ -3,3 +3,13 @@
     margin-left: 40px;
     font-size: 35px;
 }
+
+.logo {
+    height: 45px !important;
+    margin: 20px !important;
+}
+
+.errorText a {
+    color: #128bc0 !important;
+    text-decoration: underline !important;
+}

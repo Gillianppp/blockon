@@ -24,7 +24,7 @@ class TextBlock extends Component {
     const { userType } = this.props;
     return (
       <div>
-        { userType === 'Pharmacist' &&
+        { userType === 'pharmacist' &&
           <h1 className="imgTitle">Report Patient Status</h1>
         }
 

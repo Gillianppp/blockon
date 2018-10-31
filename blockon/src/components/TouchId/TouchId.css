@@ -23,7 +23,7 @@
 
 .titleOne {
     text-align: center;
-     margin-top: 50px !important;
+     margin-top: 20px !important;
     color: white;
     font-size: 15px;
 }
@@ -50,6 +50,17 @@
 
 .touchTitle {
     font-size: 10px
+}
+
+.user-type {
+    text-transform: capitalize;
+}
+
+.loginLogo {
+    position: absolute !important;
+    top: 20px;
+    height: 40px;
+    left: 30px;
 }
 
 @media screen and (max-width: 768px) {

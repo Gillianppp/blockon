@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Image } from 'semantic-ui-react';
 import docBg from '../../assets/images/mount1.jpg';
 import pharmaBg from '../../assets/images/pharma-auth.jpg';
 import patBg from '../../assets/images/patient-auth.jpg';
+import headerLogo from '../../assets/images/CryptScrypt-white.png';
 import './TouchId.css';
 
 
@@ -14,17 +16,17 @@ class TouchId extends Component {
     }
     
     redirect() {
-        const { usertype } = this.props.match.params;
+        const { coreUserType, userType } = this.props.match.params;
         let path = '';
-        switch(usertype) {
-            case 'Physician':
-                path = '/auth/Patient';
+        switch(userType) {
+            case 'physician':
+                path = '/auth/physician/patient';
                 break;
-            case 'Patient':
-                path = '/dashboard/Physician';
+            case 'patient':
+                path = `/dashboard/${coreUserType}`;
                 break;
-            case 'Pharmacist':
-                path = '/dashboard/Pharmacist';
+            case 'pharmacist':
+                path = '/auth/pharmacist/patient';
                 break;
             default:
                 path = '/dashboard';
@@ -33,16 +35,16 @@ class TouchId extends Component {
     }
 
     render() {
-        const {usertype} = this.props.match.params;
+        const {coreUserType, userType} = this.props.match.params;
         let bgPath = '';
-        switch(usertype) {
-            case 'Physician':
+        switch(userType) {
+            case 'physician':
              bgPath = docBg;
                 break;
-            case 'Patient':
+            case 'patient':
             bgPath = patBg;
                 break;
-            case 'Pharmacist':
+            case 'pharmacist':
             bgPath = pharmaBg;
                 break;
             default:
@@ -51,10 +53,14 @@ class TouchId extends Component {
         return(
             <div>
             <div className="touchBg" style={ { backgroundImage: `url(${bgPath})` } }></div>
+            <Image src={headerLogo} alt="logo" className="loginLogo"/>
             <div className="touchWrapper">
-                <h3 className="titleOne">Welcome&nbsp;&nbsp;<span className="userType">{usertype}</span></h3>
+            { coreUserType &&
+                <h3 className="titleOne">Welcome&nbsp;&nbsp;<span className="user-type">{coreUserType}, Thank you for authenticating</span></h3>
+            }
+                <h3 className="titleOne">Hi&nbsp;&nbsp;<span className="user-type">{userType}</span></h3>
                 <h1 className="titleTwo">Login</h1>
-                <div className="iconWrapper" onClick={() => this.redirect()}>
+                <div className="iconWrapper" onClick={this.redirect}>
                     <FontAwesomeIcon icon="fingerprint" className="touchIcon" />
                     <div>
                         <span className="touchTitle">Touch ID</span>

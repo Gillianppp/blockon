@@ -16,7 +16,8 @@ class App extends Component {
     return (
         <BrowserRouter>
           <Switch>
-            <Route path="/auth/:usertype" exact component={AuthContainer} />
+            <Route path="/auth/:userType" exact component={AuthContainer} />
+            <Route path="/auth/:coreUserType/:userType" exact component={AuthContainer} />
             <Route path="/dashboard/:usertype" exact component={DashboardContainer} />
             <Route path="/"exact component={HomeContainer} />
             <Route path="/home" exact component={HomeContainer} />

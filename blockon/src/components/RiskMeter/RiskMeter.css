@@ -1,7 +1,7 @@
 .speedometer {
     height: 200px;
-    left: 20%;
-    position: relative;
+    margin: 0 auto;
+    display: block;
     margin-top: 10px;
 }
 
@@ -10,8 +10,8 @@
     background-color: rgb(10, 136, 188) !important;
      color: white !important;
      text-align: center;
-    position: relative;
-    left: 20%;
+     margin: 0 auto !important;
+     display: block !important;
     font-size: 20px !important;
     font-weight: bold;
     height: 40px !important;

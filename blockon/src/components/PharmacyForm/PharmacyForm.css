@@ -1,0 +1,9 @@
+.submitBtn {
+    background-color: rgb(10, 136, 188) !important;
+    color: white !important;
+    margin-top: 25px !important;
+  }
+
+  .formField {
+    margin-bottom: 10px !important;
+  }
