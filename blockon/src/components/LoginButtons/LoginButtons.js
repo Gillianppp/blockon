@@ -8,7 +8,7 @@ class LoginButtons extends Component {
     callApi(){
         // Github fetch library : https://github.com/github/fetch
         // Call the API page
-        fetch('http://localhost:4000')
+        fetch('http://localhost:3001/queryallcars')
         .then((result) => {
           // Get the result
           // If we want text, call result.text()
@@ -19,10 +19,38 @@ class LoginButtons extends Component {
         })
       }
 
+    postPrescription(){
+        fetch('http://localhost:3001/PostPrescription',{
+            method:'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                firstParam: 'yourValue',
+                secondParam: 'yourOtherValue',
+              })
+            
+        })
+        .then((response)=>response.text())
+        .then((responseText)=>{
+            console.log(responseText);
+        })
+        .catch((error)=>{
+            console.error(error);
+        });
+
+    }
+      
+
+
+    
+
     render = () => (
         <div className="buttonBg">
             <div className="buttonWrapper">
                 <Button.Group vertical>
+                    <Button onClick={() => this.postPrescription()}>Click here to POST API</Button>
                     <Button onClick={() => this.callApi()}>Click here to call API</Button>
                     <Button className="loginButton" size='huge'>Physician</Button>
                     <Button className="loginButton" size='huge'>Pharmachist</Button>
