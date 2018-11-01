@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
-import { Form, Input, Button, Checkbox } from 'semantic-ui-react';
+import { Form, Input, Button, Checkbox, Icon } from 'semantic-ui-react';
 import 'react-widgets/dist/css/react-widgets.css';
 import { DateTimePicker } from 'react-widgets';
 // import DatePicker from 'react-datepicker';
@@ -42,6 +42,7 @@ class PharmacyForm extends Component {
                             </Form.Field>
                             <Form.Field inline className="formField">
                                 <Checkbox className="opiCheck" label='Opioid?' />
+                                <Icon name ="warning sign" />
                             </Form.Field>
                         </Col>
                         <Col xs={6}>

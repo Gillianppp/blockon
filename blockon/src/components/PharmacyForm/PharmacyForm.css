@@ -18,6 +18,10 @@
     width: 70% !important;
   }
 
+  .sign {
+    color:red !important;
+    margin-left: -6px !important;
+  }
   .pharmInput {
     width: 85% !important;
   }
