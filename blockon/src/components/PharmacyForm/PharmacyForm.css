@@ -2,6 +2,7 @@
     background-color: rgb(10, 136, 188) !important;
     color: white !important;
     margin-top: 25px !important;
+    margin-bottom: 15px !important;
   }
 
   .formField {
@@ -17,6 +18,10 @@
     width: 70% !important;
   }
 
+  .pharmInput {
+    width: 85% !important;
+  }
+
   .datePicker input[type=text] {
     border:0px !important;
   }
@@ -24,7 +29,6 @@
   .successMessage {
     font-size: 20px;
     font-weight: bold;
-    color: rgb(10, 136, 188) ;
   }
 
   .opiCheck {
@@ -35,8 +39,21 @@
     font-weight: 700;
   }
 
+  .dateLabel, .dateInput {
+    display:inline-block;
+  }
+
   @media screen and (max-width: 1024px) {
     .opiCheck {
       margin-left: 0px !important;
     }
+
+    .pharmInput {
+      width: 100% !important;
+    }
+
+    .formInput {
+      width: 100% !important;
+    }
+
   }

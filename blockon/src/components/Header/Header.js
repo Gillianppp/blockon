@@ -7,7 +7,7 @@ class HeaderBar extends Component {
   render() {
       return(
         <Header as='h2' className="mainHeader">
-        <Header.Content className="headerIcons iconTitle"><Image className="logo" src={logo} alt="logo" /></Header.Content>
+        <Header.Content className="headerIcons iconTitle"><Image className="headerLogo" src={logo} alt="logo" /></Header.Content>
           <LogOutDropdown />
       </Header>
       );

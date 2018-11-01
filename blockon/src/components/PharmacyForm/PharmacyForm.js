@@ -60,18 +60,18 @@ class PharmacyForm extends Component {
                         </Col>
                         <Col xs={6}>
                             <Form.Field inline className="formField datePicker">
-                                <label className="formLabel">Expire on</label>
-                                <DateTimePicker className="formInput"
+                                <label className="formLabel dateLabel">Expire on</label>
+                                <DateTimePicker className="formInput dateInput"
                                     time={false}
                                 />
                             </Form.Field>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={6}>
+                        <Col xs={12}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Pharmacy</label>
-                                <Input className="formInput" placeholder='Pharmacy' />
+                                <Input className="pharmInput" placeholder='Pharmacy' />
                             </Form.Field>
                         </Col>
                     </Row>
