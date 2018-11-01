@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
-// import PropTypes from 'prop-types';
 import TextBlock from '../../components/TextBlock/TextBlock';
 import PharmacyForm from '../../components/PharmacyForm/PharmacyForm';
 import './Tabs.css';
@@ -22,7 +21,9 @@ class Tabs extends Component {
         const userType = this.props.match.params.usertype;
         return (
             <Tab.Pane className="tabTwo">
-                <TextBlock userType={userType}/>
+                <TextBlock 
+                    onRiskMeterChange={this.props.onRiskMeterChange}
+                    userType={userType}/>
             </Tab.Pane>
         );
     

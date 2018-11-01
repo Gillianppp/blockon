@@ -25,13 +25,13 @@ class PatientDoctorTable extends Component {
             {
                  patientData.map((patient, index) => (
                     <Table.Row key={uuid()}>
-                        <Table.Cell>{patient.name}</Table.Cell>
-                        <Table.Cell>{patient.presDate}</Table.Cell>
-                        <Table.Cell><Label color={`${patient.status === true ? 'green' : 'red'}`}>{`${patient.status === true ? 'Active' : 'Expired'}`}</Label></Table.Cell>
-                        <Table.Cell>{patient.opioid}</Table.Cell>
-                        <Table.Cell>{patient.dosage}</Table.Cell>
-                        <Table.Cell>{patient.lastDate}</Table.Cell>
-                        <Table.Cell>{patient.noRefil}</Table.Cell>
+                        <Table.Cell>{patient.Name}</Table.Cell>
+                        <Table.Cell>{patient.CreateDate}</Table.Cell>
+                        <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
+                        <Table.Cell>{`${patient.Opioid === true ? 'Yes' : 'No'}`}</Table.Cell>
+                        <Table.Cell>{patient.Dosage}</Table.Cell>
+                        <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
+                        <Table.Cell>{patient.NoOfRefills}</Table.Cell>
                     </Table.Row>
                         ))
             }
@@ -44,65 +44,19 @@ class PatientDoctorTable extends Component {
 
 PatientDoctorTable.propTypes = {
     patientData: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      presDate: PropTypes.string.isRequired,
-      status: PropTypes.bool.isRequired,
-      opioid: PropTypes.string.isRequired,
-      dosage: PropTypes.string.isRequired,
-      lastDate: PropTypes.string.isRequired,
-      noRefil: PropTypes.string.isRequired,
+      Name: PropTypes.string.isRequired,
+      CreateDate: PropTypes.string.isRequired,
+      Status: PropTypes.string.isRequired,
+      Opioid: PropTypes.bool.isRequired,
+      Dosage: PropTypes.string.isRequired,
+      LastDispenseDate: PropTypes.string.isRequired,
+      NoOfRefills: PropTypes.string.isRequired,
     })),
 
   };
 
   PatientDoctorTable.defaultProps = {
-    patientData: [
-      {
-        name: 'Hydrocodane',
-        presDate: '10/15/2015',
-        status: true,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '2'
-      },
-      {
-        name: 'Simvastatin',
-        presDate: '10/26/2015',
-        status: true,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '0'
-      },
-      {
-        name: 'Lipitor',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'yes',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6'
-      },
-      {
-        name: 'Levothyroxin',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'no',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6'
-      },
-      {
-        name: 'Lisinopril',
-        presDate: '10/20/2015',
-        status: false,
-        opioid: 'no',
-        dosage: '50mg',
-        lastDate: '10/15/2015',
-        noRefil: '6'
-      },
-    ]
+    patientData: []
   };
 
 

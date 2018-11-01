@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import './PatientPharmaTable.css';
 
 const Dispense = (patient) => {
-  const { status, onClick, id } = patient;
-  if (status) {
+  const { Status, onClick, id } = patient;
+  if (Status === "Active") {
     return <Button onClick={() => onClick(id)} className="dispBtn">Dispense</Button>
   }
 
@@ -19,7 +19,7 @@ const Dispense = (patient) => {
 };
 
 class PatientPharmaTable extends Component {
-  
+
 
   render() {
     const { patientData, updateNumberOfRefills } = this.props;
@@ -42,17 +42,13 @@ class PatientPharmaTable extends Component {
           {
             patientData.map((patient, index) => (
               <Table.Row key={uuid()}>
-                <Table.Cell>{patient.name}</Table.Cell>
-                <Table.Cell>{patient.presDate}</Table.Cell>
-                <Table.Cell>
-                  <Label color={`${patient.status === true ? 'green' : 'red'}`}>
-                    {`${patient.status === true ? 'Active' : 'Expired'}`}
-                  </Label>
-                </Table.Cell>
-                <Table.Cell>{patient.opioid}</Table.Cell>
-                <Table.Cell>{patient.dosage}</Table.Cell>
-                <Table.Cell>{patient.lastDate}</Table.Cell>
-                <Table.Cell>{patient.noRefil}</Table.Cell>
+                <Table.Cell>{patient.Name}</Table.Cell>
+                <Table.Cell>{patient.CreateDate}</Table.Cell>
+                <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
+                <Table.Cell>{`${patient.Opioid === true ? 'Yes' : 'No'}`}</Table.Cell>
+                <Table.Cell>{patient.Dosage}</Table.Cell>
+                <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
+                <Table.Cell>{patient.NoOfRefills}</Table.Cell>
                 <Table.Cell>
                   <Dispense {...patient} onClick={updateNumberOfRefills} />
                 </Table.Cell>
@@ -68,13 +64,13 @@ class PatientPharmaTable extends Component {
 
 PatientPharmaTable.propTypes = {
   patientData: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    presDate: PropTypes.string.isRequired,
-    status: PropTypes.bool.isRequired,
-    opioid: PropTypes.string.isRequired,
-    dosage: PropTypes.string.isRequired,
-    lastDate: PropTypes.string.isRequired,
-    noRefil: PropTypes.string.isRequired,
+    Name: PropTypes.string.isRequired,
+    CreateDate: PropTypes.string.isRequired,
+    Status: PropTypes.string.isRequired,
+    Opioid: PropTypes.bool.isRequired,
+    Dosage: PropTypes.string.isRequired,
+    LastDispenseDate: PropTypes.string.isRequired,
+    NoOfRefills: PropTypes.string.isRequired,
     updateNumberOfRefills: PropTypes.func
   })),
 

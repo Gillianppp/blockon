@@ -12,66 +12,82 @@ class Dashboard extends Component {
     constructor (props) {
         super(props);
         this.state = {
+            risk: 0,
             patientData: [{
-                name: 'Hydrocodane',
-                presDate: '10/15/2015',
-                status: true,
-                opioid: 'yes',
-                dosage: '50mg',
-                lastDate: '10/15/2015',
-                noRefil: '2',
+                Name: 'Hydrocodane',
+                CreateDate: '10/15/2015',
+                Status: "Active",
+                ControlledSubstance:false,
+                Opioid: true,
+                Dosage: '50mg',
+                LastDispenseDate: '10/15/2015',
+                NoOfRefills: '2',
+                Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1000
               },
               {
-                name: 'Simvastatin',
-                presDate: '10/26/2015',
-                status: true,
-                opioid: 'yes',
-                dosage: '50mg',
-                lastDate: '10/15/2015',
-                noRefil: '0',
+                Name: 'Simvastatin',
+                CreateDate: '10/26/2015',
+                Status: "Active",
+                ControlledSubstance:false,
+                Opioid: true,
+                Dosage: '50mg',
+                LastDispenseDate: '10/15/2015',
+                NoOfRefills: '0',
+                Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1001
               },
               {
-                name: 'Lipitor',
-                presDate: '10/20/2015',
-                status: false,
-                opioid: 'yes',
-                dosage: '50mg',
-                lastDate: '10/15/2015',
-                noRefil: '6',
+                Name: 'Lipitor',
+                CreateDate: '10/20/2015',
+                Status: "Expired",
+                ControlledSubstance:true,
+                Opioid: true,
+                Dosage: '50mg',
+                LastDispenseDate: '10/15/2015',
+                NoOfRefills: '6',
+                Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1002
               },
               {
-                name: 'Levothyroxin',
-                presDate: '10/20/2015',
-                status: false,
-                opioid: 'no',
-                dosage: '50mg',
-                lastDate: '10/15/2015',
-                noRefil: '6',
+                Name: 'Levothyroxin',
+                CreateDate: '10/20/2015',
+                Status: "Expired",
+                ControlledSubstance:false,
+                Opioid: false,
+                Dosage: '50mg',
+                LastDispenseDate: '10/15/2015',
+                NoOfRefills: '6',
+                Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1003
               },
               {
-                name: 'Lisinopril',
-                presDate: '10/20/2015',
-                status: false,
-                opioid: 'no',
-                dosage: '50mg',
-                lastDate: '10/15/2015',
-                noRefil: '6',
+                Name: 'Lisinopril',
+                CreateDate: '10/20/2015',
+                Status: "Expired",
+                ControlledSubstance:false,
+                Opioid: false,
+                Dosage: '50mg',
+                LastDispenseDate: '10/15/2015',
+                NoOfRefills: '6',
+                Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1004
               }]
         }
         this.updateNumberOfRefills = this.updateNumberOfRefills.bind(this);
-    } 
+        this.onRiskMeterChange = this.onRiskMeterChange.bind(this);
+    }
+    
+    onRiskMeterChange (risk) {
+        this.setState({risk})
+    }
 
     updateNumberOfRefills (id) {
         const patientData = [...this.state.patientData];
         patientData.forEach(med => {
             if(med.id === id) {
-                med.noRefil = med.noRefil - 1;
-                med.status = false;
+                med.NoOfRefills = med.NoOfRefills - 1;
+                med.Status = "Expired";
             }
         })
         this.setState({patientData});
@@ -89,14 +105,20 @@ class Dashboard extends Component {
                     <div className="dbsecondWrapper">
                         <Row className="firstSection">
                             <Col xs={12} lg={5} className="meterSection" >
-                                <RiskMeter />
+                                <RiskMeter value={this.state.risk}/>
                             </Col>
                             <Col xs={12} lg={6} className="otherSection">
                             { userType === 'pharmacist' &&
-                                <TextBlock userType={userType}/>
+                                <TextBlock
+                                    onRiskMeterChange={this.onRiskMeterChange} 
+                                    userType={userType}/>
                             }
                             { userType === 'physician' &&
-                                <Tabs {...this.props}/>
+                                <Tabs 
+                                    {...this.props}
+                                    onRiskMeterChange={this.onRiskMeterChange}
+
+                                />
                             }
                                
                             </Col>
@@ -109,7 +131,7 @@ class Dashboard extends Component {
                                     patientData={this.state.patientData}/>
                             }
                             { userType === 'physician' &&
-                                <PatientDoctorTable />
+                                <PatientDoctorTable patientData={this.state.patientData}/>
                             }
                                 
                             </Col>

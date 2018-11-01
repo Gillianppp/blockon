@@ -7,3 +7,36 @@
   .formField {
     margin-bottom: 10px !important;
   }
+
+  .formLabel {
+    width: 70px !important;
+    margin-right: 5px !important;
+  }
+
+  .formInput {
+    width: 70% !important;
+  }
+
+  .datePicker input[type=text] {
+    border:0px !important;
+  }
+
+  .successMessage {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(10, 136, 188) ;
+  }
+
+  .opiCheck {
+    margin-left: 75px !important;
+  }
+
+  .opiCheck label {
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .opiCheck {
+      margin-left: 0px !important;
+    }
+  }
