@@ -15,6 +15,7 @@ class Dashboard extends Component {
             risk: 0,
             patientData: [{
                 Name: 'Hydrocodane',
+                Brand: "Generic",
                 CreateDate: '10/15/2015',
                 Status: "Active",
                 ControlledSubstance:false,
@@ -27,6 +28,7 @@ class Dashboard extends Component {
               },
               {
                 Name: 'Simvastatin',
+                Brand: "Generic",
                 CreateDate: '10/26/2015',
                 Status: "Active",
                 ControlledSubstance:false,
@@ -39,6 +41,7 @@ class Dashboard extends Component {
               },
               {
                 Name: 'Lipitor',
+                Brand: "Generic",
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:true,
@@ -51,6 +54,7 @@ class Dashboard extends Component {
               },
               {
                 Name: 'Levothyroxin',
+                Brand: "Generic",
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:false,
@@ -63,6 +67,7 @@ class Dashboard extends Component {
               },
               {
                 Name: 'Lisinopril',
+                Brand: "Generic",
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:false,
@@ -76,18 +81,24 @@ class Dashboard extends Component {
         }
         this.updateNumberOfRefills = this.updateNumberOfRefills.bind(this);
         this.onRiskMeterChange = this.onRiskMeterChange.bind(this);
+        
     }
     
     onRiskMeterChange (risk) {
         this.setState({risk})
     }
-
+    
     updateNumberOfRefills (id) {
         const patientData = [...this.state.patientData];
+        var currentDate = new Date();
+        var date = currentDate.getDate();
+        var month = currentDate.getMonth(); 
+        var year = currentDate.getFullYear();
         patientData.forEach(med => {
             if(med.id === id) {
                 med.NoOfRefills = med.NoOfRefills - 1;
                 med.Status = "Expired";
+                med.LastDispenseDate = month + "/" + date + "/" + year;
             }
         })
         this.setState({patientData});

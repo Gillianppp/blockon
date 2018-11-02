@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
-import { Form, Input, Button, Checkbox, Icon, Popup } from 'semantic-ui-react';
+import { Form, Input, Button, Icon,} from 'semantic-ui-react';
 import 'react-widgets/dist/css/react-widgets.css';
 import { DateTimePicker } from 'react-widgets';
-// import DatePicker from 'react-datepicker';
-// import moment from 'moment';
-
-// import 'react-datepicker/dist/react-datepicker.css';
 import Moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
 import './PharmacyForm.css';
@@ -20,14 +16,26 @@ class PharmacyForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isFormSubmitted: false
+            isFormSubmitted: false,
+            isHidden: true,
+            drugName: ''
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.isBlur = this.isBlur.bind(this);
     }
 
     onFormSubmit() {
         this.setState({ isFormSubmitted: true });
     }
+
+    handleChange(event) {
+        this.setState({ drugName: event.target.value });
+      }
+
+      isBlur() {
+        this.setState({ isHidden: false });
+      }
 
     render() {
         const { isFormSubmitted } = this.state;
@@ -38,15 +46,12 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Drug Name</label>
-                                <Input className="formInput" placeholder='Drug Name' />
+                                <Input value={this.state.drugName} onChange={this.handleChange}  onBlur={this.isBlur} className="formInput" placeholder='Drug Name' />
                             </Form.Field>
-                            <Form.Field inline className="formField">
-                                <Checkbox className="opiCheck" label='Opioid?' />
-                                <Popup className="popUp"
-                                    trigger={<Icon name="warning sign" />}
-                                    content='This is an opioid drug' basic
-                                />
-                                
+                            <Form.Field>
+                            {this.state.drugName.length > 0 && !this.state.isHidden && 
+                            <p className="opiText">This is an Opioid <Icon name="warning sign" /></p>
+                            }
                             </Form.Field>
                         </Col>
                         <Col xs={6}>

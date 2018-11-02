@@ -12,6 +12,7 @@ class PatientDoctorTable extends Component {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Prescription Name</Table.HeaderCell>
+            <Table.HeaderCell>Brand</Table.HeaderCell>
             <Table.HeaderCell>Prescription Date</Table.HeaderCell>
             <Table.HeaderCell>Status</Table.HeaderCell>
             <Table.HeaderCell>Opioid</Table.HeaderCell>
@@ -26,9 +27,10 @@ class PatientDoctorTable extends Component {
                  patientData.map((patient, index) => (
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.Name}</Table.Cell>
+                        <Table.Cell>{patient.Brand}</Table.Cell>
                         <Table.Cell>{patient.CreateDate}</Table.Cell>
                         <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
-                        <Table.Cell>{`${patient.Opioid === true ? 'Yes' : 'No'}`}</Table.Cell>
+                        <Table.Cell>{`${patient.Opioid ? 'Yes' : 'No'}`}</Table.Cell>
                         <Table.Cell>{patient.Dosage}</Table.Cell>
                         <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
                         <Table.Cell>{patient.NoOfRefills}</Table.Cell>
@@ -45,6 +47,7 @@ class PatientDoctorTable extends Component {
 PatientDoctorTable.propTypes = {
     patientData: PropTypes.arrayOf(PropTypes.shape({
       Name: PropTypes.string.isRequired,
+      Brand: PropTypes.string.isRequired,
       CreateDate: PropTypes.string.isRequired,
       Status: PropTypes.string.isRequired,
       Opioid: PropTypes.bool.isRequired,

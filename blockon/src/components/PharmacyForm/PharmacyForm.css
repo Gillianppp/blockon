@@ -20,7 +20,7 @@
 
   .sign {
     color:red !important;
-    margin-left: -6px !important;
+    padding-left: 6px !important;
   }
   .pharmInput {
     width: 85% !important;
@@ -45,12 +45,10 @@
     font-weight: bold;
   }
 
-  .opiCheck {
+  .opiText {
     margin-left: 75px !important;
-  }
-
-  .opiCheck label {
-    font-weight: 700;
+    font-weight: 500;
+    margin-bottom: 10px !important;
   }
 
   .dateLabel, .dateInput {
@@ -67,7 +65,7 @@
     margin-left: 10px;
   }
   @media screen and (max-width: 1024px) {
-    .opiCheck {
+    .opiText {
       margin-left: 0px !important;
     }
 
