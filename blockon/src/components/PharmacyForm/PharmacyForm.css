@@ -6,7 +6,7 @@
   }
 
   .formField {
-    margin-bottom: 10px !important;
+    margin-bottom: 15px !important;
   }
 
   .formLabel {
@@ -30,6 +30,16 @@
     border:0px !important;
   }
 
+  .ui.popup {
+    background-color: rgb(10, 136, 188) !important;
+    font-size: 12px;
+    padding: 5px !important;
+    border-radius: 7px;
+    border-color: rgb(10, 136, 188);
+    color: white !important;
+    text-align: center;
+  }
+
   .successMessage {
     font-size: 20px;
     font-weight: bold;
@@ -47,6 +57,15 @@
     display:inline-block;
   }
 
+  .addressText {
+    font-weight: 100 !important;
+    font-style: italic !important;
+  }
+
+  .changeLink {
+    text-decoration: underline;
+    margin-left: 10px;
+  }
   @media screen and (max-width: 1024px) {
     .opiCheck {
       margin-left: 0px !important;

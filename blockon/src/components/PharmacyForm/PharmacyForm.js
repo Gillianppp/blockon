@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
-import { Form, Input, Button, Checkbox, Icon } from 'semantic-ui-react';
+import { Form, Input, Button, Checkbox, Icon, Popup } from 'semantic-ui-react';
 import 'react-widgets/dist/css/react-widgets.css';
 import { DateTimePicker } from 'react-widgets';
 // import DatePicker from 'react-datepicker';
@@ -42,7 +42,11 @@ class PharmacyForm extends Component {
                             </Form.Field>
                             <Form.Field inline className="formField">
                                 <Checkbox className="opiCheck" label='Opioid?' />
-                                <Icon name ="warning sign" />
+                                <Popup className="popUp"
+                                    trigger={<Icon name="warning sign" />}
+                                    content='This is an opioid drug' basic
+                                />
+                                
                             </Form.Field>
                         </Col>
                         <Col xs={6}>
@@ -72,7 +76,8 @@ class PharmacyForm extends Component {
                         <Col xs={12}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Pharmacy</label>
-                                <Input className="pharmInput" placeholder='Pharmacy' />
+                                <p className="addressText">CVS 978 Boylston st, Boston,MA 02461</p>
+                                <a href="/" className="changeLink">Change</a>
                             </Form.Field>
                         </Col>
                     </Row>

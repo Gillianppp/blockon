@@ -34,8 +34,8 @@ class Tabs extends Component {
             <div>
             <Tab menu={{ secondary: true, pointing: true }}
               panes={[
-                { menuItem: 'Submit Patient Prescription', render: () => this.TabOne() },
-                { menuItem: 'Report Patient Status', render: () => this.TabTwo() }
+                { menuItem: 'Patient Prescription', render: () => this.TabOne() },
+                { menuItem: 'Patient Status', render: () => this.TabTwo() }
               ]}
             />
           </div>
