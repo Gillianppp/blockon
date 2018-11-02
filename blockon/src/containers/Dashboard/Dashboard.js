@@ -32,10 +32,10 @@ class Dashboard extends Component {
                 CreateDate: '10/26/2015',
                 Status: "Active",
                 ControlledSubstance:false,
-                Opioid: true,
+                Opioid: false,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '0',
+                NoOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 id: 1001
               },
