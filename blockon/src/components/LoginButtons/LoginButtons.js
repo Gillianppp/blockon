@@ -20,15 +20,24 @@ class LoginButtons extends Component {
       }
 
     postPrescription(){
-        fetch('http://localhost:3001/PostPrescription',{
+        fetch('http://localhost:3001/PostPrescription/114',{
             method:'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                firstParam: 'yourValue',
-                secondParam: 'yourOtherValue',
+                Name: 'Drug1',
+                CreateDate: '11/03/2018',
+                Status:'Active',
+                ControlledSubstance:'False',
+                Opioid:'False',
+                Dosage:'20mg',
+                Brand:'Generic',
+                LastDispenseDate:'N/A',
+                NumberOfRefills:'3',
+                Phamacy:'CVS in Boston'
+
               })
             
         })
