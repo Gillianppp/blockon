@@ -28,12 +28,46 @@ class PharmacyForm extends Component {
         this.brandChange = this.brandChange.bind(this);
         this.dosageChange = this.dosageChange.bind(this);
         this.isBlur = this.isBlur.bind(this);
+        this.postPrescription = this.postPrescription.bind(this);
+    }
+    postPrescription(name, dosage, brand){
+        fetch('http://localhost:3001/PostPrescription/114',{
+            method:'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                "Name": name,
+                "CreateDate": "11/03/2018",
+                "ExpireDate":"01/20/2019",
+                "ControlledSubstance":"False",
+                "Schedule":"Schedule II",
+                "Dosage":dosage,
+                "Brand":brand,
+                "LastDispenseDate":"N/A",
+               "NumberOfRefills":"3",
+                "Phamacy":"CVS in Boston"
+
+              })
+            
+        })
+        .then((response)=>response.text())
+        .then((responseText)=>{
+            console.log(responseText);
+        })
+        .catch((error)=>{
+            console.error(error);
+        });
+
     }
 
     onFormSubmit() {
         console.log(this.state.drugName);
         console.log(this.state.brand);
         console.log(this.state.dosage);
+        this.postPrescription(this.state.drugName, this.state.dosage, this.state.brand)
+
         this.setState({ isFormSubmitted: true });
     }
 
@@ -51,7 +85,7 @@ class PharmacyForm extends Component {
       isBlur() {
         this.setState({ isHidden: false });
       }
-
+    
     render() {
         const { isFormSubmitted } = this.state;
         if (!isFormSubmitted) {
