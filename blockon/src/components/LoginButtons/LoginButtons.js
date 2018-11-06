@@ -28,16 +28,16 @@ class LoginButtons extends Component {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                Name: 'Drug1',
-                CreateDate: '11/03/2018',
-                Status:'Active',
-                ControlledSubstance:'False',
-                Schedule:'Schedule II',
-                Dosage:'20mg',
-                Brand:'Generic',
-                LastDispenseDate:'N/A',
-                NumberOfRefills:'3',
-                Phamacy:'CVS in Boston'
+                'Name': 'Drug1',
+                'CreateDate': '11/03/2018',
+                'Status':'Active',
+                'ControlledSubstance':'False',
+                'Schedule':'Schedule II',
+                'Dosage':'20mg',
+                'Brand':'Generic',
+                'LastDispenseDate':'N/A',
+               'NumberOfRefills':'3',
+                'Phamacy':'CVS in Boston'
 
               })
             
