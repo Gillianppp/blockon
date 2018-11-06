@@ -32,7 +32,7 @@ class LoginButtons extends Component {
                 CreateDate: '11/03/2018',
                 Status:'Active',
                 ControlledSubstance:'False',
-                Opioid:'False',
+                Schedule:'Schedule II',
                 Dosage:'20mg',
                 Brand:'Generic',
                 LastDispenseDate:'N/A',
@@ -63,8 +63,8 @@ class LoginButtons extends Component {
             <div className="buttonWrapper">
                 <Button.Group vertical>
 
-                    <Link onClick={() => this.postPrescription()}>Click here to POST API</Link>
-                    <Link onClick={() => this.callApi()}>Click here to call API</Link>
+                    <Button onClick={() => this.postPrescription()}>Click here to POST API</Button>
+                    <Button onClick={() => this.callApi()}>Click here to call API</Button>
                     <Link className="loginButton"  to="/auth/physician"><Button size='huge'>Physician</Button></Link>
                     <Link className="loginButton"  to="/auth/pharmacist"><Button size='huge'>Pharmacist</Button></Link>
                     <Link className="loginButton" to="/auth/patient"><Button size='huge'>Patient</Button></Link>
