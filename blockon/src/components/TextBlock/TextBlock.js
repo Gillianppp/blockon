@@ -56,7 +56,7 @@ class TextBlock extends Component {
         <Label.Group className="flagGroup">
           <Label className={`flagLabel ${this.isSelectedFlag('Minimal') ? 'labelActive' : ''}`} as='a' 
             onClick={() => this.toggleBox('Minimal')}>
-            Minimal
+            Sudden Aggressiveness or restlessness
             {this.isSelectedFlag('Minimal') &&
               <Icon name='check circle outline' className="checkIcon" />
             }
@@ -64,7 +64,7 @@ class TextBlock extends Component {
           </Label>
           <Label className={`flagLabel ${this.isSelectedFlag('Low') ? 'labelActive' : ''}`} as='a' 
             onClick={() => this.toggleBox('Low')}>
-            Low
+            Sudden change in behavior
             {this.isSelectedFlag('Low') &&
               <Icon name='check circle outline' className="checkIcon" />
             }
@@ -72,7 +72,7 @@ class TextBlock extends Component {
           </Label>
           <Label className={`flagLabel ${this.isSelectedFlag('Moderate') ? 'labelActive' : ''}`} as='a' 
             onClick={() => this.toggleBox('Moderate')}>
-            Moderate
+            Abrupt weight changes
             {this.isSelectedFlag('Moderate') &&
               <Icon name='check circle outline' className="checkIcon" />
             }
@@ -80,7 +80,7 @@ class TextBlock extends Component {
           </Label>
           <Label className={`flagLabel ${this.isSelectedFlag('High') ? 'labelActive' : ''}`} as='a' 
             onClick={() => this.toggleBox('High')}>
-            High
+            Dilated or constricted pupils
             {this.isSelectedFlag('High') &&
               <Icon name='check circle outline' className="checkIcon" />
             }
@@ -88,7 +88,7 @@ class TextBlock extends Component {
           </Label>
           <Label className={`flagLabel ${this.isSelectedFlag('Intense') ? 'labelActive' : ''}`} as='a' 
             onClick={() => this.toggleBox('Intense')}>
-            Intense
+            Bloodshot or glazed eyes
             {this.isSelectedFlag('Intense') &&
               <Icon name='check circle outline' className="checkIcon" />
             }

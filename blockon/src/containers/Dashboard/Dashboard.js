@@ -24,6 +24,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NoOfRefills: '2',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
+                Schedule:"II",
                 id: 1000
               },
               {
@@ -37,6 +38,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NoOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
+                Schedule:"II",
                 id: 1001
               },
               {
@@ -50,6 +52,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NoOfRefills: '0',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
+                Schedule:"II",
                 id: 1002
               },
               {
@@ -63,6 +66,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NoOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
+                Schedule:"II",
                 id: 1003
               },
               {
@@ -76,6 +80,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NoOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
+                Schedule:"II",
                 id: 1004
               }]
         }

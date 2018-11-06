@@ -13,9 +13,10 @@ class PatientDoctorTable extends Component {
           <Table.Row>
             <Table.HeaderCell>Prescription Name</Table.HeaderCell>
             <Table.HeaderCell>Brand</Table.HeaderCell>
+            <Table.HeaderCell>Schedule</Table.HeaderCell>
             <Table.HeaderCell>Prescription Date</Table.HeaderCell>
             <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Opioid</Table.HeaderCell>
+            <Table.HeaderCell>Controlled Substance</Table.HeaderCell>
             <Table.HeaderCell>Dosage</Table.HeaderCell>
             <Table.HeaderCell>Last Dispense Date</Table.HeaderCell>
             <Table.HeaderCell># of Refils</Table.HeaderCell>
@@ -28,9 +29,10 @@ class PatientDoctorTable extends Component {
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.Name}</Table.Cell>
                         <Table.Cell>{patient.Brand}</Table.Cell>
+                        <Table.Cell>{patient.Schedule}</Table.Cell>
                         <Table.Cell>{patient.CreateDate}</Table.Cell>
                         <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
-                        <Table.Cell>{`${patient.Opioid ? 'Yes' : 'No'}`}</Table.Cell>
+                        <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
                         <Table.Cell>{patient.Dosage}</Table.Cell>
                         <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
                         <Table.Cell>{patient.NoOfRefills}</Table.Cell>
@@ -50,10 +52,11 @@ PatientDoctorTable.propTypes = {
       Brand: PropTypes.string.isRequired,
       CreateDate: PropTypes.string.isRequired,
       Status: PropTypes.string.isRequired,
-      Opioid: PropTypes.bool.isRequired,
+      ControlledSubstance: PropTypes.bool.isRequired,
       Dosage: PropTypes.string.isRequired,
       LastDispenseDate: PropTypes.string.isRequired,
       NoOfRefills: PropTypes.string.isRequired,
+      Schedule: PropTypes.string.isRequired,
     })),
 
   };
