@@ -18,7 +18,10 @@ class PharmacyForm extends Component {
         this.state = {
             isFormSubmitted: false,
             isHidden: true,
-            drugName: ''
+            drugName: '',
+            brand:'',
+            dosage:'',
+            expireOn:''
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
