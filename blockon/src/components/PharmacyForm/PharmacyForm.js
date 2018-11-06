@@ -25,16 +25,28 @@ class PharmacyForm extends Component {
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.brandChange = this.brandChange.bind(this);
+        this.dosageChange = this.dosageChange.bind(this);
         this.isBlur = this.isBlur.bind(this);
     }
 
     onFormSubmit() {
+        console.log(this.state.drugName);
+        console.log(this.state.brand);
+        console.log(this.state.dosage);
         this.setState({ isFormSubmitted: true });
     }
 
     handleChange(event) {
         this.setState({ drugName: event.target.value });
       }
+    
+    brandChange(event){
+        this.setState({brand:event.target.value});
+    }
+    dosageChange(event){
+        this.setState({dosage:event.target.value});
+    }
 
       isBlur() {
         this.setState({ isHidden: false });
@@ -60,7 +72,7 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Brand</label>
-                                <Input className="formInput" placeholder='Brand' />
+                                <Input value={this.state.brand}    className="formInput" onChange={this.brandChange} placeholder='Brand' />
                             </Form.Field>
                         </Col>
                     </Row>
@@ -68,7 +80,7 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Dosage</label>
-                                <Input className="formInput" placeholder='Dosage' />
+                                <Input  value={this.state.dosage} onChange={this.dosageChange} className="formInput" placeholder='Dosage' />
                             </Form.Field>
                         </Col>
                         <Col xs={6}>
