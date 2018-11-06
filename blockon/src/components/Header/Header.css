@@ -1,18 +1,20 @@
 .mainHeader {
-    min-height: 80px;
-    margin-bottom: 0 !important;
+    min-height: 70px;
 }
 
 .headerIcons {
-    padding-top: 25px !important;
-    padding-bottom: 25px;
+    padding-top: 15px !important;
+    padding-bottom: 15px;
     padding-left: 25px;
 }
 
-.icon{
-    color: rgb(10,136,188) !important;
+.headerLogo {
+    height: 40px !important;
 }
 
-.iconTitle {
-    font-size: 35px;
+.userDropDown {
+    position: absolute !important;
+    top: 20px;
+    right: 60px;
+    font-size: 15px;
 }

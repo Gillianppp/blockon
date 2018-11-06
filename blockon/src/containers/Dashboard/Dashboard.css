@@ -1,0 +1,19 @@
+.meterSection, .otherSection {
+    box-shadow: -1px -1px 12px #888;
+}
+
+.meterSection {
+    margin-left: 30px;
+    margin-top: 20px;
+    background: #fff !important;
+}
+
+.otherSection {
+    margin-left: 20px;
+    margin-top: 20px;
+    background: #fff !important;
+}
+
+.dbsecondWrapper {
+    background: #f7f7f7;
+}

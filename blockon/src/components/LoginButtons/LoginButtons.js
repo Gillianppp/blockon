@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
-// import { Row, Col } from 'react-flexbox-grid';
+import { Button, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import headerLogo from '../../assets/images/CryptScrypt-white.png';
 import './LoginButtons.css';
 
 
@@ -56,16 +57,20 @@ class LoginButtons extends Component {
     
 
     render = () => (
-        <div className="buttonBg">
+        <div>
+            <div className="buttonBg"></div>
+            <Image src={headerLogo} alt="logo" className="loginLogo"/>
             <div className="buttonWrapper">
                 <Button.Group vertical>
-                    <Button onClick={() => this.postPrescription()}>Click here to POST API</Button>
-                    <Button onClick={() => this.callApi()}>Click here to call API</Button>
-                    <Button className="loginButton" size='huge'>Physician</Button>
-                    <Button className="loginButton" size='huge'>Pharmachist</Button>
-                    <Button className="loginButton" size='huge'>Patient</Button>
-                    <Button className="loginButton" size='huge'>PDMP Coordinator</Button>
-                    <Button className="loginButton" size='huge'>Director of Health</Button>
+
+                    <Link onClick={() => this.postPrescription()}>Click here to POST API</Link>
+                    <Link onClick={() => this.callApi()}>Click here to call API</Link>
+                    <Link className="loginButton"  to="/auth/physician"><Button size='huge'>Physician</Button></Link>
+                    <Link className="loginButton"  to="/auth/pharmacist"><Button size='huge'>Pharmacist</Button></Link>
+                    <Link className="loginButton" to="/auth/patient"><Button size='huge'>Patient</Button></Link>
+                    <Link className="loginButton" to="/auth/pdmp"><Button size='huge'>PDMP Coordinator</Button></Link>
+                    <Link className="loginButton" to="/auth/director"><Button size='huge'>Director of Health</Button></Link>
+
                 </Button.Group>
             </div>
         </div>

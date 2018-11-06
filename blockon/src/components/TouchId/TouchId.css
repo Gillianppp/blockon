@@ -1,7 +1,10 @@
 .touchBg {
-    background: url('../../assets/images/auth2.jpg') top center;
+    background: top center;
     background-size: cover;
     height: 100vh;
+    position: relative;
+    z-index: -1;
+    filter: blur(5px);
 }
 
 .touchWrapper {
@@ -14,11 +17,13 @@
     right: 25%;
     border-radius: 5px;
     height: 250px;
+    border: 1px solid white;
+    z-index: 1;
 }
 
 .titleOne {
     text-align: center;
-     margin-top: 50px !important;
+     margin-top: 20px !important;
     color: white;
     font-size: 15px;
 }
@@ -35,10 +40,27 @@
 
 .touchIcon {
     font-size: 35px;
+    border: 1px solid white;
+    height: 44px;
+    width: 44px !important;
+    border-radius: 50px !important;
+    padding: 6px;
+    cursor: pointer !important;
 }
 
 .touchTitle {
     font-size: 10px
+}
+
+.user-type {
+    text-transform: capitalize;
+}
+
+.loginLogo {
+    position: absolute !important;
+    top: 20px;
+    height: 40px;
+    left: 30px;
 }
 
 @media screen and (max-width: 768px) {

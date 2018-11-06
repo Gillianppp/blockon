@@ -1,0 +1,80 @@
+.submitBtn {
+    background-color: rgb(10, 136, 188) !important;
+    color: white !important;
+    margin-top: 25px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .formField {
+    margin-bottom: 15px !important;
+  }
+
+  .formLabel {
+    width: 70px !important;
+    margin-right: 5px !important;
+  }
+
+  .formInput {
+    width: 70% !important;
+  }
+
+  .sign {
+    color:red !important;
+    padding-left: 6px !important;
+  }
+  .pharmInput {
+    width: 85% !important;
+  }
+
+  .datePicker input[type=text] {
+    border:0px !important;
+  }
+
+  .ui.popup {
+    background-color: rgb(10, 136, 188) !important;
+    font-size: 12px;
+    padding: 5px !important;
+    border-radius: 7px;
+    border-color: rgb(10, 136, 188);
+    color: white !important;
+    text-align: center;
+  }
+
+  .successMessage {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .opiText {
+    margin-left: 75px !important;
+    font-weight: 500;
+    margin-bottom: 10px !important;
+  }
+
+  .dateLabel, .dateInput {
+    display:inline-block;
+  }
+
+  .addressText {
+    font-weight: 100 !important;
+    font-style: italic !important;
+  }
+
+  .changeLink {
+    text-decoration: underline;
+    margin-left: 10px;
+  }
+  @media screen and (max-width: 1024px) {
+    .opiText {
+      margin-left: 0px !important;
+    }
+
+    .pharmInput {
+      width: 100% !important;
+    }
+
+    .formInput {
+      width: 100% !important;
+    }
+
+  }
