@@ -5,6 +5,20 @@ import PropTypes from 'prop-types';
 import './PatientDoctorTable.css';
 
 class PatientDoctorTable extends Component {
+  callApi(){
+    // Github fetch library : https://github.com/github/fetch
+    // Call the API page
+    fetch('http://localhost:3001/queryallcars')
+    .then((result) => {
+      // Get the result
+      // If we want text, call result.text()
+      return result.json();
+    }).then((jsonResult) => {
+      // Do something with the result
+      console.log(jsonResult);
+    })
+  }
+
   render() {
     const { patientData } = this.props;
     return (

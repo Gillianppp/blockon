@@ -20,12 +20,59 @@ class PharmacyForm extends Component {
             isHidden: true,
             drugName: ''
         };
+        this.newPrescription = {
+            Name: '',
+            CreateDate: JSON.stringify(new Date()),
+            ExpireDate:'',
+            ControlledSubstance:'False',
+            Schedule:'Schedule II',
+            Dosage:'',
+            Brand:'',
+            LastDispenseDate:'N/A',
+            NumberOfRefills:'',
+            Phamacy:'CVS in Boston'
+        }
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.isBlur = this.isBlur.bind(this);
     }
 
+    
+postPrescription(){
+    fetch('http://localhost:3001/PostPrescription/114',{
+        method:'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            Name:this.newPrescription.Name,
+            CreateDate: this.newPrescription.CreateDate,
+            ExpireDate:'12/20/2018',
+            ControlledSubstance:'False',
+            Schedule:'Schedule II',
+            Dosage:this.newPrescription.Dosage,
+            Brand:this.newPrescription.Brand,
+            LastDispenseDate:'N/A',
+            NumberOfRefills:this.newPrescription.NumberOfRefills,
+            Phamacy:'CVS in Boston'
+
+          })
+        
+    })
+    .then((response)=>response.text())
+    .then((responseText)=>{
+        console.log(responseText);
+    })
+    .catch((error)=>{
+        console.error(error);
+    });
+
+}
+  
+
     onFormSubmit() {
+        console.log(this.newPrescription);
         this.setState({ isFormSubmitted: true });
     }
 
@@ -46,10 +93,10 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Drug Name</label>
-                                <Input value={this.state.drugName} onChange={this.handleChange}  onBlur={this.isBlur} className="formInput" placeholder='Drug Name' />
+                                <Input value={this.newPrescription.Name} onChange={this.handleChange}  onBlur={this.isBlur} className="formInput" placeholder='Drug Name' />
                             </Form.Field>
                             <Form.Field>
-                            {this.state.drugName.length > 0 && !this.state.isHidden && 
+                            {this.newPrescription.Name.length > 0 && !this.state.isHidden && 
                             <p className="opiText">This is an Opioid <Icon name="warning sign" /></p>
                             }
                             </Form.Field>
@@ -57,7 +104,7 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Brand</label>
-                                <Input className="formInput" placeholder='Brand' />
+                                <Input value={this.newPrescription.Brand} className="formInput" placeholder='Brand' />
                             </Form.Field>
                         </Col>
                     </Row>
@@ -65,7 +112,7 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField">
                                 <label className="formLabel">Dosage</label>
-                                <Input className="formInput" placeholder='Dosage' />
+                                <Input value={this.newPrescription.Dosage} className="formInput" placeholder='Dosage' />
                             </Form.Field>
                         </Col>
                         <Col xs={6}>
