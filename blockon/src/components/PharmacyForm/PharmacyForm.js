@@ -12,7 +12,7 @@ momentLocalizer();
 
 
 class PharmacyForm extends Component {
-    keyNumber = 40;
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -34,6 +34,10 @@ class PharmacyForm extends Component {
         this.postPrescription = this.postPrescription.bind(this);
     }
     postPrescription(name, dosage, brand,expireOn,numberOfRefill){
+       // localStorage.setItem('key',40);
+        var key = localStorage.getItem('key');
+        localStorage.setItem('key',parseInt(key) + 1);
+        this.keyNumber = this.keyNumber + 1;
         fetch('http://localhost:3001/PostPrescription/111s',{
             method:'POST',
             headers: {
@@ -51,14 +55,15 @@ class PharmacyForm extends Component {
                 "LastDispenseDate":"N/A",
                "NumberOfRefills":numberOfRefill,
                 "Phamacy":"CVS 978 Boylston st, Boston,MA 02461",
-                "Key":"DRUG"+this.keyNumber,
+                "Key":"DRUG"+localStorage.getItem('key'),
               })
             
         })
         .then((response)=>response.text())
         .then((responseText)=>{
             console.log(responseText);
-            this.keyNumber = this.keyNumber + 1;
+           console.log("local storage",localStorage.getItem('key'));
+            //console.log(this.keyNumber);
         })
         .catch((error)=>{
             console.error(error);
