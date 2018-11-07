@@ -39,7 +39,7 @@ class PharmacyForm extends Component {
               },
               body: JSON.stringify({
                 "Name": name,
-                "CreateDate": "11/03/2018",
+                "CreateDate": ((new Date()).getMonth()+1)+"/"+(new Date()).getDate()+"/"+(new Date()).getFullYear(),
                 "ExpireDate":"01/20/2019",
                 "ControlledSubstance":"False",
                 "Schedule":"Schedule II",
@@ -47,7 +47,7 @@ class PharmacyForm extends Component {
                 "Brand":brand,
                 "LastDispenseDate":"N/A",
                "NumberOfRefills":"3",
-                "Phamacy":"CVS in Boston"
+                "Phamacy":"CVS 978 Boylston st, Boston,MA 02461"
 
               })
             
