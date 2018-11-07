@@ -20,11 +20,11 @@ class Dashboard extends Component {
             var allDrugs = [];
             for(var i =0;i<data.length;i++){
                 if(data[i].Record.Id == 111){
-                    allDrugs.push(data[i].Record.Prescriptions);
+                    allDrugs.push(data[i].Record.Prescriptions[0]);
                 }
             }
 
-            this.setState({json:new{
+            this.setState({json:{
                 Id:111,
                 RiskLevel:"2",
                 Prescriptions:allDrugs
