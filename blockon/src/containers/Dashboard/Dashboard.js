@@ -12,8 +12,8 @@ class Dashboard extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            risk: 0,
-            patientData: [{
+            RiskLevel: 0,
+            Prescriptions: [{
                 Name: 'Hydrocodane',
                 Brand: "Generic",
                 CreateDate: '10/15/2015',
@@ -94,7 +94,7 @@ class Dashboard extends Component {
     }
     
     updateNumberOfRefills (id) {
-        const patientData = [...this.state.patientData];
+        const patientData = [...this.state.Prescriptions];
         var currentDate = new Date();
         var date = currentDate.getDate();
         var month = currentDate.getMonth(); 
@@ -121,7 +121,7 @@ class Dashboard extends Component {
                     <div className="dbsecondWrapper">
                         <Row className="firstSection">
                             <Col xs={12} lg={5} className="meterSection" >
-                                <RiskMeter value={this.state.risk}/>
+                                <RiskMeter value={this.state.RiskLevel}/>
                             </Col>
                             <Col xs={12} lg={6} className="otherSection">
                             { userType === 'pharmacist' &&
@@ -144,10 +144,10 @@ class Dashboard extends Component {
                             { userType === 'pharmacist' &&
                                 <PatientPharmaTable 
                                     updateNumberOfRefills={this.updateNumberOfRefills}
-                                    patientData={this.state.patientData}/>
+                                    patientData={this.state.Prescriptions}/>
                             }
                             { userType === 'physician' &&
-                                <PatientDoctorTable patientData={this.state.patientData}/>
+                                <PatientDoctorTable patientData={this.state.Prescriptions}/>
                             }
                                 
                             </Col>
