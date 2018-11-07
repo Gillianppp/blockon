@@ -28,11 +28,12 @@ class PharmacyForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.brandChange = this.brandChange.bind(this);
         this.dosageChange = this.dosageChange.bind(this);
+        this.refillChange = this.refillChange.bind(this);
 
         this.isBlur = this.isBlur.bind(this);
         this.postPrescription = this.postPrescription.bind(this);
     }
-    postPrescription(name, dosage, brand,expireOn){
+    postPrescription(name, dosage, brand,expireOn,numberOfRefill){
         fetch('http://localhost:3001/PostPrescription/114',{
             method:'POST',
             headers: {
@@ -48,7 +49,7 @@ class PharmacyForm extends Component {
                 "Dosage":dosage,
                 "Brand":brand,
                 "LastDispenseDate":"N/A",
-               "NumberOfRefills":"3",
+               "NumberOfRefills":numberOfRefill,
                 "Phamacy":"CVS 978 Boylston st, Boston,MA 02461"
 
               })
@@ -68,10 +69,10 @@ class PharmacyForm extends Component {
         console.log(this.state.drugName);
         console.log(this.state.brand);
         console.log(this.state.dosage);
-        console.log(this.state.expireOn);
         console.log(Moment(this.state.expireOn).format('L'));
+        console.log(this.state.numberOfRefill);
 
-        this.postPrescription(this.state.drugName, this.state.dosage, this.state.brand, Moment(this.state.expireOn).format('L'));
+        this.postPrescription(this.state.drugName, this.state.dosage, this.state.brand, Moment(this.state.expireOn).format('L'), this.state.numberOfRefill);
 
         this.setState({ isFormSubmitted: true });
     }
@@ -85,6 +86,9 @@ class PharmacyForm extends Component {
     }
     dosageChange(event){
         this.setState({dosage:event.target.value});
+    }
+    refillChange(event){
+        this.setState({numberOfRefill:event.target.value});
     }
 
       isBlur() {
@@ -131,6 +135,15 @@ class PharmacyForm extends Component {
                             </Form.Field>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col xs={6}>
+                            <Form.Field inline className="formField">
+                                <label className="formLabel">Number of Refills</label>
+                                <Input  value={this.state.numberOfRefill} onChange={this.refillChange} className="formInput" placeholder='Number of Refills' />
+                            </Form.Field>
+                        </Col>                      
+                    </Row>
+
                     <Row>
                         <Col xs={12}>
                             <Form.Field inline className="formField">
