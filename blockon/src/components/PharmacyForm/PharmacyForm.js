@@ -21,16 +21,18 @@ class PharmacyForm extends Component {
             drugName: '',
             brand:'',
             dosage:'',
-            expireOn:''
+            expireOn:new Date(),
+            numberOfRefill:'',
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.brandChange = this.brandChange.bind(this);
         this.dosageChange = this.dosageChange.bind(this);
+
         this.isBlur = this.isBlur.bind(this);
         this.postPrescription = this.postPrescription.bind(this);
     }
-    postPrescription(name, dosage, brand){
+    postPrescription(name, dosage, brand,expireOn){
         fetch('http://localhost:3001/PostPrescription/114',{
             method:'POST',
             headers: {
@@ -39,8 +41,8 @@ class PharmacyForm extends Component {
               },
               body: JSON.stringify({
                 "Name": name,
-                "CreateDate": ((new Date()).getMonth()+1)+"/"+(new Date()).getDate()+"/"+(new Date()).getFullYear(),
-                "ExpireDate":"01/20/2019",
+                "CreateDate": Moment().format('L'),
+                "ExpireDate":expireOn,
                 "ControlledSubstance":"False",
                 "Schedule":"Schedule II",
                 "Dosage":dosage,
@@ -66,7 +68,10 @@ class PharmacyForm extends Component {
         console.log(this.state.drugName);
         console.log(this.state.brand);
         console.log(this.state.dosage);
-        this.postPrescription(this.state.drugName, this.state.dosage, this.state.brand)
+        console.log(this.state.expireOn);
+        console.log(Moment(this.state.expireOn).format('L'));
+
+        this.postPrescription(this.state.drugName, this.state.dosage, this.state.brand, Moment(this.state.expireOn).format('L'));
 
         this.setState({ isFormSubmitted: true });
     }
@@ -120,7 +125,7 @@ class PharmacyForm extends Component {
                         <Col xs={6}>
                             <Form.Field inline className="formField datePicker">
                                 <label className="formLabel dateLabel">Expire on</label>
-                                <DateTimePicker className="formInput dateInput"
+                                <DateTimePicker value ={this.state.expireOn} onChange={value => this.setState({ expireOn: value })} className="formInput dateInput"
                                     time={false}
                                 />
                             </Form.Field>
