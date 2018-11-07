@@ -52,7 +52,7 @@ PatientDoctorTable.propTypes = {
       Brand: PropTypes.string.isRequired,
       CreateDate: PropTypes.string.isRequired,
       ExpireDate: PropTypes.string.isRequired,
-      ControlledSubstance: PropTypes.bool.isRequired,
+      ControlledSubstance: PropTypes.string.isRequired,
       Dosage: PropTypes.string.isRequired,
       LastDispenseDate: PropTypes.string.isRequired,
       NumberOfRefills: PropTypes.string.isRequired,

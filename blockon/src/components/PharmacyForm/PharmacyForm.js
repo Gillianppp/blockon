@@ -34,7 +34,7 @@ class PharmacyForm extends Component {
         this.postPrescription = this.postPrescription.bind(this);
     }
     postPrescription(name, dosage, brand,expireOn,numberOfRefill){
-        fetch('http://localhost:3001/PostPrescription/114',{
+        fetch('http://localhost:3001/PostPrescription/111s',{
             method:'POST',
             headers: {
                 'Accept': 'application/json',

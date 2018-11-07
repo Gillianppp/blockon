@@ -12,9 +12,11 @@ class Dashboard extends Component {
     componentDidMount(){
         console.log("try to fetch api");
         fetch('http://localhost:3001/queryallcars')
-        .then((result) => {
-        }).then(data => {
-          this.setState({json:data[0].Record});
+        .then(res => res.json())
+        .then(
+            (data) => {
+            console.log("this result is", data);
+            this.setState({json:data[0].Record});
           console.log(this.state.json);
         })
       }
@@ -85,10 +87,10 @@ class Dashboard extends Component {
                             { userType === 'pharmacist' &&
                                 <PatientPharmaTable 
                                     updateNumberOfRefills={this.updateNumberOfRefills}
-                                    patientData={this.state.Prescriptions}/>
+                                    patientData={this.state.json.Prescriptions}/>
                             }
                             { userType === 'physician' &&
-                                <PatientDoctorTable patientData={this.state.Prescriptions}/>
+                                <PatientDoctorTable patientData={this.state.json.Prescriptions}/>
                             }
                                 
                             </Col>
