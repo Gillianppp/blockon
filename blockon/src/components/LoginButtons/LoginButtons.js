@@ -7,8 +7,7 @@ import './LoginButtons.css';
 
 class LoginButtons extends Component {
     callApi(){
-        // Github fetch library : https://github.com/github/fetch
-        // Call the API page
+        console.log("try to fetch api");
         fetch('http://localhost:3001/queryallcars')
         .then((result) => {
           // Get the result

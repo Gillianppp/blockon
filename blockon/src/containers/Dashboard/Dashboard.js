@@ -9,71 +9,22 @@ import PatientDoctorTable from '../../components/PatientDoctorTable/PatientDocto
 import './Dashboard.css';
 
 class Dashboard extends Component {
+    callApi(){
+        console.log("try to fetch api");
+        fetch('http://localhost:3001/queryallcars')
+        .then((result) => {
+          // Get the result
+          // If we want text, call result.text()
+          return result.json();
+        }).then((jsonResult) => {
+          // Do something with the result
+          console.log(jsonResult);
+        })
+      }
+
     constructor (props) {
         super(props);
-        this.state = {
-            RiskLevel: 0,
-            Prescriptions: [{
-                Name: 'Hydrocodane',
-                Brand: "Generic",
-                CreateDate: '10/15/2015',
-                ExpireDate: '10/15/2019',
-                ControlledSubstance:false,
-                Dosage: '50mg',
-                LastDispenseDate: '10/15/2015',
-                NumberOfRefills: '2',
-                Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II"
-              },
-              {
-                Name: 'Simvastatin',
-                Brand: "Generic",
-                CreateDate: '10/26/2015',
-                ExpireDate: '10/15/2019',
-                ControlledSubstance:false,
-                Dosage: '50mg',
-                LastDispenseDate: '10/15/2015',
-                NumberOfRefills: '6',
-                Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II",
-              },
-              {
-                Name: 'Lipitor',
-                Brand: "Generic",
-                CreateDate: '10/20/2015',
-                ExpireDate: '10/15/2018',
-                ControlledSubstance:true,
-                Dosage: '50mg',
-                LastDispenseDate: '10/15/2015',
-                NumberOfRefills: '0',
-                Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II",
-              },
-              {
-                Name: 'Levothyroxin',
-                Brand: "Generic",
-                CreateDate: '10/20/2015',
-                ExpireDate: '10/15/2018',
-                ControlledSubstance:false,
-                Dosage: '50mg',
-                LastDispenseDate: '10/15/2015',
-                NumberOfRefills: '6',
-                Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II",
-              },
-              {
-                Name: 'Lisinopril',
-                Brand: "Generic",
-                CreateDate: '10/20/2015',
-                ExpireDate: '10/15/2018',
-                ControlledSubstance:false,
-                Dosage: '50mg',
-                LastDispenseDate: '10/15/2015',
-                NumberOfRefills: '6',
-                Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II",
-              }]
-        }
+        this.state = this.callApi();
         this.updateNumberOfRefills = this.updateNumberOfRefills.bind(this);
         this.onRiskMeterChange = this.onRiskMeterChange.bind(this);
         
