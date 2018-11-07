@@ -9,25 +9,23 @@ import PatientDoctorTable from '../../components/PatientDoctorTable/PatientDocto
 import './Dashboard.css';
 
 class Dashboard extends Component {
-    callApi(){
+    componentDidMount(){
         console.log("try to fetch api");
         fetch('http://localhost:3001/queryallcars')
         .then((result) => {
-          // Get the result
-          // If we want text, call result.text()
-          return result.json();
-        }).then((jsonResult) => {
-          // Do something with the result
-          console.log(jsonResult);
+        }).then(data => {
+          this.setState({json:data[0].Record});
+          console.log(this.state.json);
         })
       }
 
     constructor (props) {
         super(props);
-        this.state = this.callApi();
+        this.state = {
+            json:[]
+        }
         this.updateNumberOfRefills = this.updateNumberOfRefills.bind(this);
-        this.onRiskMeterChange = this.onRiskMeterChange.bind(this);
-        
+        this.onRiskMeterChange = this.onRiskMeterChange.bind(this);      
     }
     
     onRiskMeterChange (risk) {
