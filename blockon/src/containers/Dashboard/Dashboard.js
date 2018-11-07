@@ -23,8 +23,7 @@ class Dashboard extends Component {
                 LastDispenseDate: '10/15/2015',
                 NumberOfRefills: '2',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
-                Schedule:"II",
-                id: 1000
+                Schedule:"II"
               },
               {
                 Name: 'Simvastatin',
@@ -37,7 +36,6 @@ class Dashboard extends Component {
                 NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
-                id: 1001
               },
               {
                 Name: 'Lipitor',
@@ -50,7 +48,6 @@ class Dashboard extends Component {
                 NumberOfRefills: '0',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
-                id: 1002
               },
               {
                 Name: 'Levothyroxin',
@@ -64,7 +61,6 @@ class Dashboard extends Component {
                 NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
-                id: 1003
               },
               {
                 Name: 'Lisinopril',
@@ -78,7 +74,6 @@ class Dashboard extends Component {
                 NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
-                id: 1004
               }]
         }
         this.updateNumberOfRefills = this.updateNumberOfRefills.bind(this);
@@ -90,15 +85,17 @@ class Dashboard extends Component {
         this.setState({risk})
     }
     
-    updateNumberOfRefills (id) {
+    updateNumberOfRefills (name) {
         const patientData = [...this.state.Prescriptions];
         var currentDate = new Date();
         var date = currentDate.getDate();
         var month = currentDate.getMonth(); 
         var year = currentDate.getFullYear();
         patientData.forEach(med => {
-            if(med.id === id) {
-                med.NumberOfRefills = med.NumberOfRefills - 1;
+            console.log(name);
+            if(med.Name === name) {
+                console.log("here",med);
+                med.NumberOfRefills = (parseInt(med.NumberOfRefills) - 1).toString();
                 med.Status = "Expired";
                 med.LastDispenseDate = month + "/" + date + "/" + year;
             }

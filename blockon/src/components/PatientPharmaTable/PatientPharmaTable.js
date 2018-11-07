@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import './PatientPharmaTable.css';
 
 const Dispense = (patient) => {
-  const { Status, onClick, id } = patient;
+  const { Status, onClick, Name } = patient;
   if (Status === "Active") {
-    return <Button onClick={() => onClick(id)} className="dispBtn">Dispense</Button>
+    return <Button onClick={() => onClick(Name)} className="dispBtn">Dispense</Button>
   }
 
   return (
