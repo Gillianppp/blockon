@@ -23,6 +23,7 @@ class PharmacyForm extends Component {
             dosage:'',
             expireOn:new Date(),
             numberOfRefill:'',
+            keyNumber:40,
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -50,7 +51,8 @@ class PharmacyForm extends Component {
                 "Brand":brand,
                 "LastDispenseDate":"N/A",
                "NumberOfRefills":numberOfRefill,
-                "Phamacy":"CVS 978 Boylston st, Boston,MA 02461"
+                "Phamacy":"CVS 978 Boylston st, Boston,MA 02461",
+                "Key":"DRUG"+this.state.keyNumber,
 
               })
             
@@ -58,6 +60,7 @@ class PharmacyForm extends Component {
         .then((response)=>response.text())
         .then((responseText)=>{
             console.log(responseText);
+            this.setState({keyNumber:keyNumber + 1});
         })
         .catch((error)=>{
             console.error(error);
