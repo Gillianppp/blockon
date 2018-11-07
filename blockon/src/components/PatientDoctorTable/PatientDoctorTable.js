@@ -31,7 +31,7 @@ class PatientDoctorTable extends Component {
                         <Table.Cell>{patient.Brand}</Table.Cell>
                         <Table.Cell>{patient.Schedule}</Table.Cell>
                         <Table.Cell>{patient.CreateDate}</Table.Cell>
-                        <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
+                        <Table.Cell><Label color={`${Date.parse(patient.ExpireDate) > new Date() ? 'green' : 'red'}`}>{`${Date.parse(patient.ExpireDate) > new Date()  ? 'Active' : 'Expired'}`}</Label></Table.Cell>
                         <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
                         <Table.Cell>{patient.Dosage}</Table.Cell>
                         <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
@@ -51,7 +51,7 @@ PatientDoctorTable.propTypes = {
       Name: PropTypes.string.isRequired,
       Brand: PropTypes.string.isRequired,
       CreateDate: PropTypes.string.isRequired,
-      Status: PropTypes.string.isRequired,
+      ExpireDate: PropTypes.string.isRequired,
       ControlledSubstance: PropTypes.bool.isRequired,
       Dosage: PropTypes.string.isRequired,
       LastDispenseDate: PropTypes.string.isRequired,

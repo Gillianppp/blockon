@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import './PatientPharmaTable.css';
 
 const Dispense = (patient) => {
-  const { Status, onClick, Name } = patient;
-  if (Status === "Active") {
+  const { ExpireDate, onClick, Name } = patient;
+  if (Date.parse(patient.ExpireDate) > new Date()) {
     return <Button onClick={() => onClick(Name)} className="dispBtn">Dispense</Button>
   }
 
@@ -48,7 +48,7 @@ class PatientPharmaTable extends Component {
                 <Table.Cell>{patient.Brand}</Table.Cell>
                 <Table.Cell>{patient.Schedule}</Table.Cell>
                 <Table.Cell>{patient.CreateDate}</Table.Cell>
-                <Table.Cell><Label color={`${patient.Status === "Active" ? 'green' : 'red'}`}>{`${patient.Status === "Active" ? 'Active' : 'Expired'}`}</Label></Table.Cell>
+                <Table.Cell><Label color={`${Date.parse(patient.ExpireDate) > new Date() ? 'green' : 'red'}`}>{`${Date.parse(patient.ExpireDate) > new Date()  ? 'Active' : 'Expired'}`}</Label></Table.Cell>
                 <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
                 <Table.Cell>{patient.Dosage}</Table.Cell>
                 <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
@@ -71,7 +71,7 @@ PatientPharmaTable.propTypes = {
     Name: PropTypes.string.isRequired,
     Brand: PropTypes.string.isRequired,
     CreateDate: PropTypes.string.isRequired,
-    Status: PropTypes.string.isRequired,
+    ExpireDate: PropTypes.string.isRequired,
     ControlledSubstance: PropTypes.bool.isRequired,
     Dosage: PropTypes.string.isRequired,
     LastDispenseDate: PropTypes.string.isRequired,

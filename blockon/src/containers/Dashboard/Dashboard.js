@@ -17,7 +17,7 @@ class Dashboard extends Component {
                 Name: 'Hydrocodane',
                 Brand: "Generic",
                 CreateDate: '10/15/2015',
-                Status: "Active",
+                ExpireDate: '10/15/2019',
                 ControlledSubstance:false,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
@@ -29,7 +29,7 @@ class Dashboard extends Component {
                 Name: 'Simvastatin',
                 Brand: "Generic",
                 CreateDate: '10/26/2015',
-                Status: "Active",
+                ExpireDate: '10/15/2019',
                 ControlledSubstance:false,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
@@ -41,7 +41,7 @@ class Dashboard extends Component {
                 Name: 'Lipitor',
                 Brand: "Generic",
                 CreateDate: '10/20/2015',
-                Status: "Expired",
+                ExpireDate: '10/15/2018',
                 ControlledSubstance:true,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
@@ -53,9 +53,8 @@ class Dashboard extends Component {
                 Name: 'Levothyroxin',
                 Brand: "Generic",
                 CreateDate: '10/20/2015',
-                Status: "Expired",
+                ExpireDate: '10/15/2018',
                 ControlledSubstance:false,
-
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
                 NumberOfRefills: '6',
@@ -66,9 +65,8 @@ class Dashboard extends Component {
                 Name: 'Lisinopril',
                 Brand: "Generic",
                 CreateDate: '10/20/2015',
-                Status: "Expired",
+                ExpireDate: '10/15/2018',
                 ControlledSubstance:false,
-
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
                 NumberOfRefills: '6',
@@ -96,7 +94,7 @@ class Dashboard extends Component {
             if(med.Name === name) {
                 console.log("here",med);
                 med.NumberOfRefills = (parseInt(med.NumberOfRefills) - 1).toString();
-                med.Status = "Expired";
+                med.ExpireDate = (new Date()).toString();
                 med.LastDispenseDate = month + "/" + date + "/" + year;
             }
         })
