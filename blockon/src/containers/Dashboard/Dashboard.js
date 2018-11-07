@@ -9,6 +9,7 @@ import PatientDoctorTable from '../../components/PatientDoctorTable/PatientDocto
 import './Dashboard.css';
 
 class Dashboard extends Component {
+
     componentDidMount(){
         console.log("try to fetch api");
         fetch('http://localhost:3001/queryallcars')
@@ -16,7 +17,18 @@ class Dashboard extends Component {
         .then(
             (data) => {
             console.log("this result is", data);
-            this.setState({json:data[0].Record});
+            var allDrugs = [];
+            for(var i =0;i<data.length;i++){
+                if(data[i].Record.Id == 111){
+                    allDrugs.push(data[i.Record.Prescriptions]);
+                }
+            }
+
+            this.setState({json:new{
+                Id:111,
+                RiskLevel:"2",
+                Prescriptions:allDrugs
+            }});
           console.log(this.state.json);
         })
       }

@@ -38,7 +38,7 @@ class PharmacyForm extends Component {
         var key = localStorage.getItem('key');
         localStorage.setItem('key',parseInt(key) + 1);
         this.keyNumber = this.keyNumber + 1;
-        fetch('http://localhost:3001/PostPrescription/111s',{
+        fetch('http://localhost:3001/PostPrescription/111',{
             method:'POST',
             headers: {
                 'Accept': 'application/json',
