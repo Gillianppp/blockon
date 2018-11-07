@@ -12,7 +12,7 @@ momentLocalizer();
 
 
 class PharmacyForm extends Component {
-
+    keyNumber = 40;
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,6 @@ class PharmacyForm extends Component {
             dosage:'',
             expireOn:new Date(),
             numberOfRefill:'',
-            keyNumber:40,
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -52,15 +51,14 @@ class PharmacyForm extends Component {
                 "LastDispenseDate":"N/A",
                "NumberOfRefills":numberOfRefill,
                 "Phamacy":"CVS 978 Boylston st, Boston,MA 02461",
-                "Key":"DRUG"+this.state.keyNumber,
-
+                "Key":"DRUG"+this.keyNumber,
               })
             
         })
         .then((response)=>response.text())
         .then((responseText)=>{
             console.log(responseText);
-            this.setState({keyNumber:keyNumber + 1});
+            this.keyNumber = this.keyNumber + 1;
         })
         .catch((error)=>{
             console.error(error);
