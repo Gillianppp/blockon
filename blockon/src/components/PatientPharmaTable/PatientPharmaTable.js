@@ -52,7 +52,7 @@ class PatientPharmaTable extends Component {
                 <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
                 <Table.Cell>{patient.Dosage}</Table.Cell>
                 <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
-                <Table.Cell>{patient.NoOfRefills}</Table.Cell>
+                <Table.Cell>{patient.NumberOfRefills}</Table.Cell>
                 <Table.Cell>
                   <Dispense {...patient} onClick={updateNumberOfRefills} />
                 </Table.Cell>
@@ -75,7 +75,7 @@ PatientPharmaTable.propTypes = {
     ControlledSubstance: PropTypes.bool.isRequired,
     Dosage: PropTypes.string.isRequired,
     LastDispenseDate: PropTypes.string.isRequired,
-    NoOfRefills: PropTypes.string.isRequired,
+    NumberOfRefills: PropTypes.string.isRequired,
     Schedule: PropTypes.string.isRequired,
     updateNumberOfRefills: PropTypes.func
   })),

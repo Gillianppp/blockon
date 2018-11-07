@@ -19,10 +19,9 @@ class Dashboard extends Component {
                 CreateDate: '10/15/2015',
                 Status: "Active",
                 ControlledSubstance:false,
-                Opioid: false,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '2',
+                NumberOfRefills: '2',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
                 id: 1000
@@ -33,10 +32,9 @@ class Dashboard extends Component {
                 CreateDate: '10/26/2015',
                 Status: "Active",
                 ControlledSubstance:false,
-                Opioid: false,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '6',
+                NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
                 id: 1001
@@ -47,10 +45,9 @@ class Dashboard extends Component {
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:true,
-                Opioid: true,
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '0',
+                NumberOfRefills: '0',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
                 id: 1002
@@ -61,10 +58,10 @@ class Dashboard extends Component {
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:false,
-                Opioid: false,
+
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '6',
+                NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
                 id: 1003
@@ -75,10 +72,10 @@ class Dashboard extends Component {
                 CreateDate: '10/20/2015',
                 Status: "Expired",
                 ControlledSubstance:false,
-                Opioid: false,
+
                 Dosage: '50mg',
                 LastDispenseDate: '10/15/2015',
-                NoOfRefills: '6',
+                NumberOfRefills: '6',
                 Phamacy:"CVS 978 Boylston st, Boston,MA",
                 Schedule:"II",
                 id: 1004
@@ -101,7 +98,7 @@ class Dashboard extends Component {
         var year = currentDate.getFullYear();
         patientData.forEach(med => {
             if(med.id === id) {
-                med.NoOfRefills = med.NoOfRefills - 1;
+                med.NumberOfRefills = med.NumberOfRefills - 1;
                 med.Status = "Expired";
                 med.LastDispenseDate = month + "/" + date + "/" + year;
             }
