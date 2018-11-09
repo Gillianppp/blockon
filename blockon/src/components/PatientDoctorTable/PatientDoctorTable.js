@@ -7,6 +7,7 @@ import './PatientDoctorTable.css';
 class PatientDoctorTable extends Component {
   render() {
     const { patientData } = this.props;
+    const sortedData = patientData.sort((a, b) => b.CreateDate.localeCompare(a.CreateDate));
     return (
         <Table singleLine className="patientTable">
         <Table.Header>
@@ -25,7 +26,7 @@ class PatientDoctorTable extends Component {
     
         <Table.Body>
             {
-                 patientData.map((patient, index) => (
+                 sortedData.map((patient, index) => (
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.Name}</Table.Cell>
                         <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
