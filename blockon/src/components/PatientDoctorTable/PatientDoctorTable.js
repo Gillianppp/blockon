@@ -28,7 +28,7 @@ class PatientDoctorTable extends Component {
                  patientData.map((patient, index) => (
                     <Table.Row key={uuid()}>
                         <Table.Cell>{patient.Name}</Table.Cell>
-                        <Table.Cell>{`${patient.ControlledSubstance ? 'Yes' : 'No'}`}</Table.Cell>
+                        <Table.Cell>{patient.ControlledSubstance}</Table.Cell>
                         <Table.Cell>{patient.Schedule}</Table.Cell>
                         <Table.Cell>{patient.CreateDate}</Table.Cell>
                         <Table.Cell><Label color={`${Date.parse(patient.ExpireDate) > new Date() ? 'green' : 'red'}`}>{`${Date.parse(patient.ExpireDate) > new Date()  ? 'Active' : 'Expired'}`}</Label></Table.Cell>
