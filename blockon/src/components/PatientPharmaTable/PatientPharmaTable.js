@@ -28,14 +28,14 @@ class PatientPharmaTable extends Component {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Prescription Name</Table.HeaderCell>
-            <Table.HeaderCell>Brand</Table.HeaderCell>
+            <Table.HeaderCell>Controlled Substance</Table.HeaderCell>
             <Table.HeaderCell>Schedule</Table.HeaderCell>
             <Table.HeaderCell>Prescription Date</Table.HeaderCell>
             <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Controlled Substance</Table.HeaderCell>
             <Table.HeaderCell>Dosage</Table.HeaderCell>
+            <Table.HeaderCell>Brand</Table.HeaderCell>
             <Table.HeaderCell>Last Dispense Date</Table.HeaderCell>
-            <Table.HeaderCell># of Refils</Table.HeaderCell>
+            <Table.HeaderCell>Available Refils</Table.HeaderCell>
             <Table.HeaderCell>Action</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -45,12 +45,12 @@ class PatientPharmaTable extends Component {
             patientData.map((patient, index) => (
               <Table.Row key={uuid()}>
                 <Table.Cell>{patient.Name}</Table.Cell>
-                <Table.Cell>{patient.Brand}</Table.Cell>
+                <Table.Cell>{patient.ControlledSubstance}</Table.Cell>
                 <Table.Cell>{patient.Schedule}</Table.Cell>
                 <Table.Cell>{patient.CreateDate}</Table.Cell>
                 <Table.Cell><Label color={`${Date.parse(patient.ExpireDate) > new Date() ? 'green' : 'red'}`}>{`${Date.parse(patient.ExpireDate) > new Date()  ? 'Active' : 'Expired'}`}</Label></Table.Cell>
-                <Table.Cell>{patient.ControlledSubstance}</Table.Cell>
                 <Table.Cell>{patient.Dosage}</Table.Cell>
+                <Table.Cell>{patient.Brand}</Table.Cell>
                 <Table.Cell>{patient.LastDispenseDate}</Table.Cell>
                 <Table.Cell>{patient.NumberOfRefills}</Table.Cell>
                 <Table.Cell>
