@@ -24,7 +24,7 @@ class Dashboard extends Component {
                 }
             }
 
-            this.setState({json:new{
+            this.setState({json:{
                 Id:111,
                 RiskLevel:"2",
                 Prescriptions:allDrugs
