@@ -23,6 +23,7 @@ class PharmacyForm extends Component {
             dosage:'',
             expireOn:new Date(),
             numberOfRefill:'',
+            keyValue:40,
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -34,10 +35,9 @@ class PharmacyForm extends Component {
         this.postPrescription = this.postPrescription.bind(this);
     }
     postPrescription(name, dosage, brand,expireOn,numberOfRefill){
-       // localStorage.setItem('key',40);
-        var key = localStorage.getItem('key');
-        localStorage.setItem('key',parseInt(key) + 1);
-        this.keyNumber = this.keyNumber + 1;
+        this.setState({ keyValue: this.keyValue + 1 });
+        // this.keyNumber = this.keyNumber + 1;
+        console.log("new state changes");
         fetch('http://blockon.eastus.cloudapp.azure.com/PostPrescription/111',{
             method:'POST',
             headers: {
@@ -48,7 +48,7 @@ class PharmacyForm extends Component {
                 "Name": name,
                 "CreateDate": Moment().format('L'),
                 "ExpireDate":expireOn,
-                "ControlledSubstance":"No",
+                "ControlledSubstance":"No  ",
                 "Schedule":"Schedule II",
                 "Dosage":dosage,
                 "Brand":brand,
