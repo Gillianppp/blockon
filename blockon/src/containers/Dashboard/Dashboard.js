@@ -42,8 +42,8 @@ class Dashboard extends Component {
         this.onRiskMeterChange = this.onRiskMeterChange.bind(this);      
     }
     
-    onRiskMeterChange (risk) {
-        this.setState({risk})
+    onRiskMeterChange (RiskLevel) {
+        this.setState({RiskLevel})
     }
     
     updateNumberOfRefills (name) {
