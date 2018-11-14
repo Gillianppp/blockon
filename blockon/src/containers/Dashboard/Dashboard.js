@@ -12,7 +12,7 @@ class Dashboard extends Component {
 
     componentDidMount(){
         console.log("try to fetch api");
-        fetch('http://localhost:3001/queryallcars')
+        fetch('http://blockon.eastus.cloudapp.azure.com/queryallcars ')
         .then(res => res.json())
         .then(
             (data) => {
