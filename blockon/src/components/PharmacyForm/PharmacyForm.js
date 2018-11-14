@@ -48,7 +48,7 @@ class PharmacyForm extends Component {
                 "Name": name,
                 "CreateDate": Moment().format('L'),
                 "ExpireDate":expireOn,
-                "ControlledSubstance":"False",
+                "ControlledSubstance":"No",
                 "Schedule":"Schedule II",
                 "Dosage":dosage,
                 "Brand":brand,
